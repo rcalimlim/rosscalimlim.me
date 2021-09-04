@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "author": "Ross F. Calimlim <ross.calimlim@gmail.com>",
+  "license": "MIT",
+  "description": "Ross F. Calimlim's portfolio site.",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1"
+  }
+}
