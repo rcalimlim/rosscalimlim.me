@@ -1,5 +1,8 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./src/style.css");
+  eleventyConfig.addFilter('console', function(value) {
+    const str = util.inspect(value);
+    return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
+  });
 
   return {
     dir: {

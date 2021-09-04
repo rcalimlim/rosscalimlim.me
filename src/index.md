@@ -1,6 +1,6 @@
 ---
-title: Site Title
-layout: base.njk
+banner: ross f. calimlim
+layout: main.njk
 ---
 
-Hello, world!
+Remote software engineer working out of Austin, TX. Experienced with full-stack web technologies and scalable, cloud-native tools. Comp-sci, video game, and weightlifting enthusiast.

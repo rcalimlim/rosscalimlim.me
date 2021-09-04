@@ -1,0 +1,9 @@
+<header id="nav">
+  <h1>ross f. calimlim</h1>
+  <ul>
+    <li><a href="/">home</a></li>
+    {% for navPage in collections.navPages %}
+      <li><a href="{{ navPage.data.page.url }}">{{ navPage.data.title }}</a></li>
+    {% endfor %}
+  </ul>
+</header>
