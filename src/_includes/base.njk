@@ -1,8 +1,14 @@
+{% set css %}
+  {% include "style.css" %}
+{% endset %}
+
 <!doctype html>
 <html lang="en">
   <head>
    {% include "metadata.njk" %}
-   <link rel="stylesheet" href="/style.css">
+    <style>
+      {{ css | cssmin | safe }}
+    </style>
   </head>
 
   <body>

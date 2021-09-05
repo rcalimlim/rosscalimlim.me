@@ -1,0 +1,49 @@
+html {
+  background-color: #181a1b;
+  color: #e8e6e3;
+  font: 100%/1.5 sans-serif;
+  margin: auto;
+  max-width: 50em;
+  padding: 0 3%;
+}
+
+h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0.25em 0.25em 0.25em 0;
+}
+
+ul {
+  padding-inline-start: 25px;
+}
+
+a, a:visited{
+  color: #fabd2f;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  list-style-type: none;
+  padding: 1em 1em 1em 0;
+}
+
+.resume h3 {
+  padding: 0;
+}
+
+.resume .resumePeriod {
+  font-size: 105%;
+  padding: 0;
+  padding-inline-start: 10px;
+}
+
+.resume .resumeValue {
+  padding-inline-start: 10px;
+}
+
+.resume .spacer {
+  margin: 1em;
+}

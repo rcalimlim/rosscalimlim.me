@@ -1,11 +1,12 @@
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("console", function(value) {
-    const str = util.inspect(value);
-    return `<div style="white-space: pre-wrap;">${unescape(str)}</div>;`
-  });
+const CleanCSS = require("clean-css");
 
+module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("navPages", function(collectionApi) {
     return collectionApi.getFilteredByTag("navPages").sort((a, b) => a.data.navIndex - b.data.navIndex);
+  });
+
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
   });
 
   return {

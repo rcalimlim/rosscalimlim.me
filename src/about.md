@@ -6,11 +6,11 @@ navIndex: 0
 ---
 
 ## about
-I'm a software engineer who started as a full stack dev, but eventually migrated to primarily focusing on back end/DevOps work. I have something of an untraditional
-background, having started in business, then project management, but my experiences have made me professionaly well-rounded.
+I'm a software engineer who started as a full stack dev, but eventually migrated to primarily focusing on back end/DevOps work. I have unique
+background as it pertains to engineering, having started in business, then project management, but my experiences have made me professionally well-rounded.
 
 ### interests
-open-source contribution, video games, weightlifting (powerlifting and olympic lifting), fencing, home-improvement projects
+open-source contribution, video games, weightlifting (powerlifting and Olympic lifting), fencing, home-improvement projects
 
 ### projects
 - bns2019

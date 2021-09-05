@@ -6,14 +6,15 @@ layout: main
 <h2 class="resumeHeader">experience</h2>
 {% for experience in resume.experience %}
   <h3 class="resumeJobTitle">{{ experience.jobTitle }}</h3>
-  <p class="resumeLocation">{{ experience.location }}</p>
-  <p class="resumePeriod">{{ experience.start + "-" + experience.end }}</p>
+  <p class="resumePeriod">{{ experience.location + "  |  " + experience.start + "-" + experience.end }}</p>
   <ul class="resumeDescription">
     {% for desc in experience.description %}
       <li>{{ desc }}</li>
     {% endfor %}
   </ul>
+  <div class="spacer"></div>
 {% endfor %}
+<div class="spacer"></div>
 
 <h2 class="resumeHeader">education</h2>
 {% for edu in resume.education %}
@@ -24,15 +25,18 @@ layout: main
       <li>{{ degree }}</li>
     {% endfor %}
   </ul>
+  <div class="spacer"></div>
 {% endfor %}
+<div class="spacer"></div>
 
 <h2 class="resumeHeader">skills</h2>
 {% for skill in resume.skills %}
   <h3 class="resumeType">{{ skill.type }}</h3>
-  <ul class="resumeValues">
+  <p class="resumeValue">
     {% for val in skill.values %}
-      <li>{{ val }}</li>
+      {{ val }}{{ "," if not loop.last }}
     {% endfor %}
-  </ul>
+  </p>
+  <div class="spacer"></div>
 {% endfor %}
 </section>
