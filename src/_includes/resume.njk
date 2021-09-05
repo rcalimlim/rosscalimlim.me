@@ -1,0 +1,38 @@
+---
+layout: main
+---
+
+<section class="resume">
+<h2 class="resumeHeader">experience</h2>
+{% for experience in resume.experience %}
+  <h3 class="resumeJobTitle">{{ experience.jobTitle }}</h3>
+  <p class="resumeLocation">{{ experience.location }}</p>
+  <p class="resumePeriod">{{ experience.start + "-" + experience.end }}</p>
+  <ul class="resumeDescription">
+    {% for desc in experience.description %}
+      <li>{{ desc }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<h2 class="resumeHeader">education</h2>
+{% for edu in resume.education %}
+  <h3 class="resumeProgram">{{ edu.program }}</h3>
+  <p class="resumePeriod">{{ edu.start + "-" + edu.end }}</p>
+  <ul class="resumeDegree">
+    {% for degree in edu.degree %}
+      <li>{{ degree }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<h2 class="resumeHeader">skills</h2>
+{% for skill in resume.skills %}
+  <h3 class="resumeType">{{ skill.type }}</h3>
+  <ul class="resumeValues">
+    {% for val in skill.values %}
+      <li>{{ val }}</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+</section>
