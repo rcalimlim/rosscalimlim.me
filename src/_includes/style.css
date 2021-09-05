@@ -7,9 +7,13 @@ html {
   padding: 0 3%;
 }
 
-h1, h2, h3, p, ul {
+h1, h2, h3 {
   margin: 0;
   padding: 0.25em 0.25em 0.25em 0;
+}
+
+p, ul {
+  margin: 0.25em 0.25em 1em 0;
 }
 
 ul {
@@ -44,6 +48,10 @@ nav li {
   padding-inline-start: 10px;
 }
 
-.resume .spacer {
+.spacer-1 {
   margin: 1em;
+}
+
+.spacer-2 {
+  margin: 2em;
 }
