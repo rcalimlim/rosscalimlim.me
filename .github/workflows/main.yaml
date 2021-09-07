@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build_and_analysis:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +18,4 @@ jobs:
           node-version: 14.x
       - run: yarn install --frozen-lockfile
       - run: yarn build
+      - run: bash scripts/landing-page-size.sh
