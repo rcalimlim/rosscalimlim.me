@@ -6,8 +6,8 @@ navIndex: 2
 ---
 
 ## this site
-is built with [11ty](https://www.11ty.dev/), a lightweight static site generator. Eleventy seemed to be the lightest and most flexible way to focus on content first. An ancillary goal was
-to eventually get into the [10kb club](https://10kbclub.com/), which meant keeping the landing page zipped bundle size `<`10kb.
+is built with [11ty](https://www.11ty.dev/), a lightweight static site generator. Eleventy seemed to be the lightest and most flexible way to focus on content first. An ancillary goal is
+to eventually get into the [10kb club](https://10kbclub.com/), which means keeping the landing page zipped bundle size under 10kb.
 
 All to say, this site uses no front-end JavaScript at all--reducing client-load and decreasing network latency/load times!
 
