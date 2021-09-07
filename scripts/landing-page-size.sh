@@ -32,10 +32,12 @@ jq -n \
   --arg br $br_total_size \
   '{
       _metadata: { createdAt: $ts },
-      landingPageOriginalTotalSizeBytes: $orig|tonumber,
-      landingPageGzipTotalSizeBytes: $gzip|tonumber,
-      landingPageBrotliTotalSizeBytes: $br|tonumber,
-   }' > src/_data/generated-data.json
+      home: {
+        orig: $orig | tonumber,
+        gzip: $gzip | tonumber,
+        br: $br | tonumber,
+      },
+   }' > src/_data/generated.json
 
 # we only care about br size for 10kb club
 if (( br_total_size < MAX_LANDING_PAGE_BYTES )); then

@@ -15,8 +15,5 @@
     "clean-css": "^5.1.5",
     "rimraf": "^3.0.2"
   },
-  "dependencies": {
-    "global": "^4.4.0",
-    "jq": "^1.7.2"
-  }
+  "dependencies": {}
 }
