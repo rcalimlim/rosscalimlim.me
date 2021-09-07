@@ -6,12 +6,17 @@
   "description": "Ross F. Calimlim's portfolio site.",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "yarn clean && eleventy --serve",
-    "build": "yarn clean && eleventy"
+    "generate": "bash scripts/landing-page-size.sh",
+    "build": "yarn generate && yarn clean && eleventy",
+    "start": " yarn generate && yarn clean && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "clean-css": "^5.1.5",
     "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "global": "^4.4.0",
+    "jq": "^1.7.2"
   }
 }
