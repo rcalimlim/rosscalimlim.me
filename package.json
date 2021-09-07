@@ -7,8 +7,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "generate": "bash scripts/landing-page-size.sh",
-    "build": "yarn generate && yarn clean && eleventy",
-    "start": " yarn generate && yarn clean && eleventy --serve"
+    "build": "yarn clean && eleventy && yarn generate && eleventy",
+    "start": "yarn build && yarn generate && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
