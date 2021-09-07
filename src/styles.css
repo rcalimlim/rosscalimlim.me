@@ -34,6 +34,36 @@ nav li {
   padding: 1em 1em 1em 0;
 }
 
+table {
+  border-collapse: collapse;
+  font-family: sans-serif;
+  min-width: 30%;
+  max-width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+thead tr {
+  background-color: #fabd2f;
+  color: #000000;
+}
+
+th, td {
+  padding: 0.7em;
+}
+
+
+tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #1f2123;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid #fabd2f;
+}
+
 .resume h3 {
   padding: 0;
 }
