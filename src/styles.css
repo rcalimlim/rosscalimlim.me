@@ -7,7 +7,15 @@ html {
   padding: 0 3%;
 }
 
-h1, h2, h3 {
+main {
+  min-height: calc(100vh - 240px);
+}
+
+h1, h2 {
+  color: #e75646;
+}
+
+h1, h2, h3, h4 {
   margin: 0;
   padding: 0.25em 0.25em 0.25em 0;
 }
