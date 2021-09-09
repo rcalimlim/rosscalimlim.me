@@ -12,7 +12,7 @@ to eventually get into the [10kb club](https://10kbclub.com/), which means keepi
 All to say, this site uses no front-end JavaScript at all--reducing client-load and decreasing network latency/load times!
 
 ### stats
-AWS Cloudfront automatically compresses files over 1000 bytes in size. Here are the compression stats for this site's pages (just home for now, more to come). Because many of the files are relatively
+AWS Cloudfront automatically compresses files over 1000 bytes in size. Here are the compression stats for this site's pages. Because many of the files are relatively
 small, its original and compressed sizes might be the same. These values are automatically generated on every build.
 
 #### page sizes in various states of compression (bytes)
