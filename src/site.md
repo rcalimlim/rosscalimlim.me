@@ -19,3 +19,6 @@ small, its original and compressed sizes might be the same. These values are aut
 | page | orig | gzip | brotli |
 | :--- | ---: | ---: | -----: |
 | home | {{ generated.home.orig }} | {{ generated.home.gzip }} | {{ generated.home.br }} |
+| about | {{ generated.about.orig }} | {{ generated.about.gzip }} | {{ generated.about.br }} |
+| resume | {{ generated.resume.orig }} | {{ generated.resume.gzip }} | {{ generated.resume.br }} |
+| site | {{ generated.site.orig }} | {{ generated.site.gzip }} | {{ generated.site.br }} |
