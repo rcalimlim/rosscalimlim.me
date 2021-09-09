@@ -9,7 +9,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
   eleventyConfig.addFilter("formatRFC7231", (ts) => formatRFC7231(new Date(ts)));
-  eleventyConfig.addFilter("formatDate", (ts, formatString = "y LLLL dd HH:mm") => format(new Date(ts), formatString));
+  eleventyConfig.addFilter("formatDate", (ts, formatString = "y LLLL dd HH:mm") => format(new Date(Number(ts)), formatString));
 
   return {
     dir: {
