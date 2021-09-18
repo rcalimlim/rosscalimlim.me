@@ -31,11 +31,9 @@
       "start": "Oct 2016",
       "end": "Feb 2019",
       "description": [
-        "Designed and developed Node.js REST API as organization’s main platform service, integrating it with third-party messaging/payment vendors and MySQL/PostgreSQL to streamline customer service workflows",
-        "Built standalone, internal front end tools with Vue.js/React to phase out legacy system and increase order fulfillment velocity",
-        "Standardized use of TypeScript across all projects, to more quickly develop bug-free services and applications",
-        "Introduced automated testing stack with Mocha/Chai/Nock to ensure high software quality",
-        "Managed deployment of services to Google Cloud (Cloud Functions and Buckets) to rapidly bring products to market"
+        "Managed over 30 customer analysts across 5 hospital organizations to successfully implement business decisions",
+        "Assisted non-technical customer representatives with software configuration and implementation",
+        "Worked closely with CFOs, Finance Directors, and Business Office Directors to clearly outline financial initiatives for the organizations and systematize business logic"
       ]
     }
   ],
