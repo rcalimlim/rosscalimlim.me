@@ -7,8 +7,7 @@ navIndex: 0
 
 ## about
 
-I'm a software engineer who started as a full stack dev, but eventually migrated to primarily focusing on backend/platform work. I have a unique
-background as it pertains to engineering, having started in business, then project management, but my experiences have made me professionally well-rounded.
+I'm a software engineer focusing on building backend, web-scale technologies.
 
 ### interests
 
