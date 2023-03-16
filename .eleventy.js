@@ -11,6 +11,23 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/styles.css");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
 
+  // bust cached files
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    const relativeUrl =
+      urlPart.charAt(0) == "/" ? urlPart.substring(1) : urlPart;
+
+    try {
+      const fileStats = fs.statSync(relativeUrl);
+      const dateTimeModified = new DateTime(fileStats.mtime).toFormat("X");
+
+      params.set("v", dateTimeModified);
+    } catch (error) {}
+
+    return `${urlPart}?${params}`;
+  });
+
   eleventyConfig.addFilter(
     "formatDate",
     (ts = Date.now(), formatString = "y LLLL dd HH:mm:ss") => {
