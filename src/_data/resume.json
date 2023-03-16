@@ -1,10 +1,22 @@
 {
   "experience": [
     {
-      "jobTitle": "Senior Software Engineer",
+      "jobTitle": "Software Engineer",
+      "location": "Remote/San Francisco, California",
+      "start": "May 2022",
+      "end": "Current",
+      "description": [
+        "Leading the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance",
+        "Built a new FB Messaging feature for group member reporting, providing parity with Messenger and supporting a high-priority wellbeing initiative",
+        "Improved messaging and logging infrastructure by implementing privacy-aware annotations and removing unused, unsafe loggers, in compliance with stringent privacy expectations",
+        "Spearheaded the development and implementation of a new GraphQL API for message threads, significantly reducing client overhead by shifting compute to the server"
+      ]
+    },
+    {
+      "jobTitle": "Platform Engineer",
       "location": "Remote/Logan, Utah",
       "start": "Sep 2020",
-      "end": "Current",
+      "end": "Feb 2022",
       "description": [
         "Design and develop greenfield, cloud-native, event-based workout runner service to provide new functionality, scalability, and resiliency to end users, as well as enable full internal and third-party application integration",
         "Set team direction, created technical specifications, and delegated development tasks to workout runner team to maintain cohesiveness and improve development velocity",
@@ -39,24 +51,54 @@
   ],
   "skills": [
     {
-      "type": "back end",
-      "values": ["Node.js", "Express", "GraphQL", "MongoDB", "Mongoose", "MySQL", "PostgreSQL", "RESTful API development"]
-    },
-    {
-      "type": "front end",
-      "values": ["JavaScript", "TypeScript", "HTML", "CSS", "React", "React Native", "Vue", "Redux", "jQuery", "Material-UI", "Buefy", "Bootstrap"]
+      "type": "development",
+      "values": [
+        "JavaScript",
+        "TypeScript",
+        "PHP",
+        "Hack",
+        "C#",
+        "Java",
+        "Rust",
+        "Express",
+        "node.js",
+        "RESTful API Development",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB"
+      ]
     },
     {
       "type": "testing and deployment",
-      "values": ["AWS Cloud Suite", "GCP Suite", "Travis CI", "Docker", "Jest", "Mocha", "Chai", "Enzyme", "Artillery", "DigitalOcean", "Nginx"]
+      "values": [
+        "Serverless",
+        "AWS Cloud Suite",
+        "GCP Suite",
+        "GitHub Actions",
+        "Travis CI",
+        "Docker",
+        "Jest",
+        "Mocha",
+        "Chai",
+        "Enzyme",
+        "Artillery"
+      ]
     },
     {
       "type": "developer tools",
-      "values": ["vim", "git", "yarn", "npm", "Webpack", "Babel", "Chrome DevTools", "Unix-likes", "GitHub", "GitHub Projects", "Trello", "Postman"]
-    },
-    {
-      "type": "developer processes",
-      "values": ["Trello", "Jira", "TDD", "Agile"]
+      "values": [
+        "git",
+        "yarn",
+        "npm",
+        "Neovim",
+        "JIRA",
+        "TDD",
+        "Unix-likes",
+        "Agile",
+        "GitHub",
+        "Trello",
+        "Postman"
+      ]
     },
     {
       "type": "game development",
@@ -74,7 +116,10 @@
       "program": "Baruch College, CUNY",
       "start": "Sep 2011",
       "end": "Mar 2016",
-      "degree": ["Bachelor of Business Administration, Finance", "Minor, Philosophy"]
+      "degree": [
+        "Bachelor of Business Administration, Finance",
+        "Minor, Philosophy"
+      ]
     }
   ]
 }

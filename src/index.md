@@ -4,4 +4,5 @@ layout: main.njk
 ---
 
 ## home
-Remote software engineer working out of Austin, TX. Experienced with full-stack web technologies and scalable, cloud-native tools. Comp-sci, video game, and weightlifting enthusiast.
+
+Remote software engineer working out of Jersey City, NJ. Experienced with full-stack, scalable, cloud-native web technologies. Interested in computer science, horror/sci-fi media, and strength training.
