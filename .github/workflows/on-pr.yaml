@@ -4,9 +4,6 @@ on:
   pull_request:
     branches: [main]
 
-runs:
-  using: "node18"
-
 jobs:
   build_check:
     runs-on: ubuntu-latest
