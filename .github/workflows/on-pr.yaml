@@ -4,15 +4,18 @@ on:
   pull_request:
     branches: [main]
 
+
 jobs:
   build_check:
+    runs:
+      using: "node18"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: sergeysova/jq-action@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 18.x
 
       - name: install
         run: yarn install --frozen-lockfile
