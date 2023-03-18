@@ -1577,6 +1577,11 @@ path-root@^0.1.1:
   dependencies:
     path-root-regex "^0.1.0"
 
+pdflatex@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/pdflatex/-/pdflatex-0.0.1.tgz#00d244d021863d7f3bfd58ffc263ed23f85f1f7f"
+  integrity sha512-KR2VBXWa6787szFEXiunxaa6qDAOOztCjlExLsqfd+MnhS120oZfgTo79k2nUw+zH+NqIUeVKPuuOGzyWQiTiA==
+
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
