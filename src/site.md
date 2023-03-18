@@ -35,7 +35,7 @@ Source code for this site is available here: [GitHub](https://github.com/rcaliml
   <li>none!</li>
 {% else %}
   {% for item in devDeps %}
-  <li><a href="https://npmjs.com/package/{{ item }}">{{ item }}</a></li>
+  <li><a href={{ item.url }}>{{ item.name }}</a></li>
   {% endfor %}
 {% endif %}
 </ul>
