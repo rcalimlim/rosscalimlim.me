@@ -4,9 +4,6 @@ on:
   push:
     branches: [main]
 
-runs:
-  using: "node18"
-
 jobs:
   push:
     runs-on: ubuntu-latest
