@@ -1,23 +1,24 @@
-import { Nullable } from "../common.d";
+import { Data, DataError, Nullable } from "../baseData";
 import Degree, { TDegree } from "./degree";
 
 export type TEducation = {
-  program: string;
+  organization: string;
   start: Date;
   end: Nullable<Date>;
+  isCurrent: boolean;
   degrees: TDegree[];
 };
 
 export default class EducationData extends Data<TEducation> {
-  private program: string;
+  private organization: string;
   private start: Nullable<Date> = null;
   private end: Nullable<Date> = null;
   private degrees: TDegree[] = [];
   private isCurrent: boolean = false;
 
-  constructor(program: string) {
+  constructor(organization: string) {
     super("EducationData");
-    this.program = program;
+    this.organization = organization;
   }
 
   /*
@@ -28,21 +29,26 @@ export default class EducationData extends Data<TEducation> {
    */
   public read(): TEducation {
     if (this.start === null) {
-      throw new Error("Education must have a start date.");
+      throw this.getError("must have a start date");
     }
     if (this.end === null && !this.isCurrent) {
-      throw new Error("Education must have an end date if not ongoing.");
+      throw this.getError("must have an end date");
     }
     if (this.degrees.length === 0) {
-      throw new Error("Education must have at least one degree");
+      throw this.getError("must have at least one degree");
     }
 
     return {
-      program: this.program,
+      organization: this.organization,
       start: this.start,
       end: this.end,
+      isCurrent: this.isCurrent,
       degrees: this.degrees,
     };
+  }
+
+  public getError(msg: string): DataError {
+    return new DataError(this.type, this.organization, msg);
   }
 
   /*

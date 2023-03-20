@@ -1,9 +1,11 @@
+import { Data, DataError } from "../baseData";
+
 export type TSkill = {
   skillType: SkillType;
   skills: string[];
 };
 
-enum SkillType {
+export enum SkillType {
   DEVELOPMENT = "Development",
   TESTING_AND_DEPLOYMENT = "Testing and Deployment",
   DEVELOPER_TOOLS = "Developer Tools",
@@ -27,13 +29,17 @@ export default class SkillData extends Data<TSkill> {
   public read(): TSkill {
     // validations
     if (this.skills.length === 0) {
-      throw new Error("Must have at least one skill for this type.");
+      throw this.getError("must have at least one skill for this type.");
     }
 
     return {
       skillType: this.skillType,
       skills: this.skills,
     };
+  }
+
+  public getError(msg: string): DataError {
+    return new DataError(this.type, this.skillType, msg);
   }
 
   /*

@@ -1,4 +1,4 @@
-import { Nullable } from "../common.d";
+import { Data, DataError, Nullable } from "../baseData";
 
 export type TExperience = {
   company: string;
@@ -6,6 +6,7 @@ export type TExperience = {
   location: string;
   start: Date;
   end: Nullable<Date>;
+  isCurrent: boolean;
   bulletPoints: string[];
 };
 
@@ -15,11 +16,11 @@ export default class ExperienceData extends Data<TExperience> {
   private location: string;
   private start: Nullable<Date> = null;
   private end: Nullable<Date> = null;
-  private bulletPoints: string[] = [];
   private isCurrent: boolean = false;
+  private bulletPoints: string[] = [];
 
   constructor(company: string, jobTitle: string, location: string) {
-    super("ContactData");
+    super("ExperienceData");
     this.company = company;
     this.jobTitle = jobTitle;
     this.location = location;
@@ -34,13 +35,13 @@ export default class ExperienceData extends Data<TExperience> {
   public read(): TExperience {
     // validations
     if (this.start === null) {
-      throw new Error("Experience must have a start date.");
+      throw this.getError("must have a start date");
     }
     if (this.end === null && !this.isCurrent) {
-      throw new Error("Experience must have an end date if not ongoing.");
+      throw this.getError("must have an end date if not ongoing");
     }
     if (this.bulletPoints.length < 3 || this.bulletPoints.length > 6) {
-      throw new Error("Experience must have bettwen 3-6 bullet points.");
+      throw this.getError("must have between 3-6 bullet points");
     }
 
     return {
@@ -49,8 +50,13 @@ export default class ExperienceData extends Data<TExperience> {
       location: this.location,
       start: this.start,
       end: this.end,
+      isCurrent: this.isCurrent,
       bulletPoints: this.bulletPoints,
     };
+  }
+
+  public getError(msg: string): DataError {
+    return new DataError(this.type, this.company, msg);
   }
 
   /*

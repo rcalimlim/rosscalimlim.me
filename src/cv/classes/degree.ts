@@ -1,3 +1,5 @@
+import { Data, DataError } from "../baseData";
+
 export type TDegree = {
   degreeName: string;
   focus: string;
@@ -18,5 +20,9 @@ export default class DegreeData extends Data<TDegree> {
       degreeName: this.degreeName,
       focus: this.focus,
     };
+  }
+
+  public getError(msg: string): DataError {
+    return new DataError(this.type, this.degreeName, msg);
   }
 }

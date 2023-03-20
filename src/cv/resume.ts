@@ -1,4 +1,4 @@
-import { Nullable } from "./common.d";
+import { Data, DataError, Nullable } from "./baseData";
 import { TContact } from "./classes/contact";
 import { TEducation } from "./classes/education";
 import { TExperience } from "./classes/experience";
@@ -26,18 +26,18 @@ export default class ResumeData extends Data<TResume> {
   public read(): TResume {
     // validations
     if (this.contact === null) {
-      throw new Error("Resume contact info must be set.");
+      throw this.getError("contact info must be set");
     }
     if (this.education.length === 0) {
-      throw new Error(
-        "Resume education section must have at least one education item."
+      throw this.getError(
+        "education section must have at least one education item"
       );
     }
     if (this.experience.length < 2 || this.experience.length > 4) {
-      throw new Error("Resume experience section must have 3 or 4 items.");
+      throw this.getError("experience section must have 3 or 4 items");
     }
     if (this.skills.length < 1) {
-      throw new Error("Resume skill section must have at least 1 skill type.");
+      throw this.getError("skill section must have at least 1 skill type.");
     }
 
     return {
@@ -46,6 +46,10 @@ export default class ResumeData extends Data<TResume> {
       experience: this.experience,
       skills: this.skills,
     };
+  }
+
+  public getError(msg: string): DataError {
+    return new DataError(this.type, "resume", msg);
   }
 
   /**
