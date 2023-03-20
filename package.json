@@ -13,9 +13,13 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/node": "^18.15.3",
     "clean-css": "^5.1.5",
     "date-fns": "^2.23.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.2"
   },
   "customDependencies": {
     "lualatex": "https://www.luatex.org/download.html"
