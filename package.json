@@ -7,15 +7,23 @@
   "scripts": {
     "clean": "rimraf dist",
     "generate": "bash scripts/page-size-data.sh",
-    "build": "yarn clean && eleventy && yarn generate && eleventy",
+    "latex": "mkdir dist/files && lualatex --output-directory dist/files tex/resume.tex",
+    "build": "yarn clean && eleventy && yarn generate && eleventy && yarn latex",
     "start": "yarn build && yarn generate && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@tsconfig/recommended": "^1.0.2",
+    "@types/node": "^18.15.3",
     "clean-css": "^5.1.5",
     "date-fns": "^2.23.0",
-    "pdflatex": "^0.0.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.0.2"
   },
-  "dependencies": {}
+  "customDependencies": {
+    "lualatex": "https://www.luatex.org/download.html"
+  },
+  "packageManager": "yarn@3.5.0"
 }
