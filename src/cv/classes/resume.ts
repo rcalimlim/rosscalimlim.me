@@ -1,8 +1,8 @@
-import { Data, DataError, Nullable } from "./common";
-import { TContact } from "./classes/contact";
-import { TEducation } from "./classes/education";
-import { TExperience } from "./classes/experience";
-import { TSkill } from "./classes/skill";
+import { Data, DataError, Nullable } from "../common";
+import { TContact } from "./contact";
+import { TEducation } from "./education";
+import { TExperience } from "./experience";
+import { TSkill } from "./skill";
 
 export type TResume = {
   contact: TContact;

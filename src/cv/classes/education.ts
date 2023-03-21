@@ -1,7 +1,6 @@
 import { format } from "date-fns";
 import { Data, DataError, Nullable } from "../common";
 import Degree, { TDegree } from "./degree";
-import { start } from "repl";
 
 export type TEducation = {
   organization: string;

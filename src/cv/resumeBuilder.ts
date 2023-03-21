@@ -1,8 +1,12 @@
-import ResumeData from "./resume";
+import ResumeData from "./classes/resume";
 import ContactData from "./classes/contact";
 import ExperienceData from "./classes/experience";
 import SkillData, { SkillType } from "./classes/skill";
 import EducationData from "./classes/education";
+
+/**
+ * Build resume then output to json file
+ */
 
 // **********************************************
 // Begin resume
@@ -166,7 +170,4 @@ const BARUCH = new EducationData("Baruch College, CUNY")
 // set education in order
 resume.setEducation([HACK_REACTOR, BARUCH]);
 
-console.log(JSON.stringify(resume.read(), null, 4));
-
-// export
 export default resume;

@@ -7,16 +7,17 @@
   "scripts": {
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
-    "genResumeRaw": "yarn run ts-node src/cv/main.ts",
+    "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
     "compileLatex": "mkdir dist/files && lualatex --output-directory dist/files tex/resume.tex",
     "buildSite": "eleventy && yarn genPageSize && eleventy",
-    "buildResume": "yarn genResumeRaw && yarn compileLatex",
-    "start": "yarn clean && yarn buildSite && yarn buildResume && eleventy --serve"
+    "buildResume": "yarn genResumeJson && yarn compileLatex",
+    "build": "yarn clean && yarn buildSite",
+    "start": "yarn build && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@tsconfig/recommended": "^1.0.2",
-    "@types/node": "^18.15.3",
+    "@types/node": "^18.15.5",
     "clean-css": "^5.1.5",
     "date-fns": "^2.23.0",
     "rimraf": "^3.0.2",
