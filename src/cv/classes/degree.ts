@@ -1,4 +1,4 @@
-import { Data, DataError } from "../baseData";
+import { Data, DataError } from "../common";
 
 export type TDegree = {
   degreeName: string;

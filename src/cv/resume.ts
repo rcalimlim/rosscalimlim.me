@@ -1,4 +1,4 @@
-import { Data, DataError, Nullable } from "./baseData";
+import { Data, DataError, Nullable } from "./common";
 import { TContact } from "./classes/contact";
 import { TEducation } from "./classes/education";
 import { TExperience } from "./classes/experience";

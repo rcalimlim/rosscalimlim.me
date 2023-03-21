@@ -1,10 +1,12 @@
-import { Data, DataError, Nullable } from "../baseData";
+import { format } from "date-fns";
+import { Data, DataError, Nullable } from "../common";
 import Degree, { TDegree } from "./degree";
+import { start } from "repl";
 
 export type TEducation = {
   organization: string;
-  start: Date;
-  end: Nullable<Date>;
+  start: string;
+  end: Nullable<string>;
   isCurrent: boolean;
   degrees: TDegree[];
 };
@@ -38,10 +40,13 @@ export default class EducationData extends Data<TEducation> {
       throw this.getError("must have at least one degree");
     }
 
+    const startFormatted = format(this.start, "MMM yyyy");
+    const endFormatted =
+      this.end === null ? null : format(this.end, "MMM yyyy");
     return {
       organization: this.organization,
-      start: this.start,
-      end: this.end,
+      start: startFormatted,
+      end: endFormatted,
       isCurrent: this.isCurrent,
       degrees: this.degrees,
     };

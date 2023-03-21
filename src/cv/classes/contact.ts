@@ -4,7 +4,7 @@ import {
   HyperlinkData,
   Nullable,
   THyperlink,
-} from "../baseData";
+} from "../common";
 
 export type TContact = {
   firstName: string;

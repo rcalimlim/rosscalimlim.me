@@ -13,9 +13,7 @@ const resume = new ResumeData();
 // Contact
 // **********************************************
 const ME = new ContactData(
-  "Ross",
-  "F.",
-  "Calimlim",
+  "Ross Calimlim",
   "Software Engineer",
   "ross.calimlim@gmail.com"
 )
@@ -168,4 +166,7 @@ const BARUCH = new EducationData("Baruch College, CUNY")
 // set education in order
 resume.setEducation([HACK_REACTOR, BARUCH]);
 
-console.log(resume.read());
+console.log(JSON.stringify(resume.read(), null, 4));
+
+// export
+export default resume;
