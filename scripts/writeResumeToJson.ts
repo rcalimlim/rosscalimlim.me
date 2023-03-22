@@ -13,7 +13,7 @@ try {
   const filePathExists = existsSync(join(outputPath));
   if (!filePathExists) {
     log(`making folder ${outputPath}`);
-    mkdirSync(join(outputPath));
+    mkdirSync(join(outputPath), { recursive: true });
   }
 
   // output json resume

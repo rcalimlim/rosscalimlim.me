@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{luacode}
-\newcommand{\dataPath}{src/_data}
+\newcommand{\dataPath}{dist/files}
 
 % lua
 \begin{luacode}
@@ -8,12 +8,12 @@ require("lualibs.lua")
 local f = io.open('\dataPath/resume.json', 'r')
 local s = f:read('*a')
 f:close()
-data =  utilities.json.tolua(s)
+resume =  utilities.json.tolua(s)
 \end{luacode}
 
 % tex doc
 \begin{document}
-some document text
-
-\directlua{tex.print(data['test'])}
+some text
+\directlua{tex.print(resume['contact']['name'])}
+\directlua{tex.print(resume['contact']['email'])}
 \end{document}

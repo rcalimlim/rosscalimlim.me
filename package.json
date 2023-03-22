@@ -8,10 +8,11 @@
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
     "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
-    "compileLatex": "mkdir dist/files && lualatex --output-directory dist/files tex/resume.tex",
+    "compileLatex": "mkdir -p dist/files && lualatex -c --output-directory dist/files src/cv/cv.tex",
+    "rmLatexLogs": "rm dist/files/cv.aux && rm dist/files/cv.log",
     "buildSite": "eleventy && yarn genPageSize && eleventy",
-    "buildResume": "yarn genResumeJson && yarn compileLatex",
-    "build": "yarn clean && yarn buildSite",
+    "buildResume": "yarn genResumeJson && yarn compileLatex && yarn rmLatexLogs",
+    "build": "yarn clean && yarn buildSite && yarn buildResume",
     "start": "yarn build && eleventy --serve"
   },
   "devDependencies": {
