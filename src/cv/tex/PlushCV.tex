@@ -11,15 +11,15 @@
 %
 % IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
 %
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 % TODO:
 % 1. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add more icon options 
+% 3. Add more icon options
 % 4. Fix hacky left alignment on contact line
 % 5. Remove Hacky fix for awkward extra vertical space
-% 
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % CHANGELOG:
@@ -33,10 +33,22 @@
 %%Main: https://icons8.com/icons/carbon-copy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[]{plushcv}
+\documentclass[]{PlushCV}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
+
+% read json resume
+\usepackage{luacode}
+\newcommand{\dataPath}{../../../dist/files}
+\begin{luacode}
+require("lualibs.lua")
+local f = io.open('\dataPath/resume.json', 'r')
+local s = f:read('*a')
+f:close()
+resume =  utilities.json.tolua(s)
+\end{luacode}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,6 +57,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\directlua{tex.print(resume['contact']['name'])}
 \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.home.me}{homepage.com}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/}{li-username}}{\href{mailto:first.last@mail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
 
 % \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
@@ -55,7 +68,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{minipage}[t]{0.70\textwidth} 
+\begin{minipage}[t]{0.70\textwidth}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,7 +83,7 @@
 \begin{tightemize}
 \sectionsep
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus. \item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.  
+\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus. \item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
 \end{tightemize}
 \sectionsep
 
@@ -116,7 +129,7 @@
 \descript{| C\#, Microsoft Bot Framework}
 \location{2018}
 \begin{tightemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper. 
+\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
 \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
 \end{tightemize}
 \sectionsep
@@ -125,7 +138,7 @@
 %     AWARDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \section{Awards} 
+% \section{Awards}
 % \begin{tabular}{rll}
 % 2020	     & Finalist & Lorem Ipsum\\
 % 2018	     & $2^{nd}$ & Dolor Sit Amet\\
@@ -139,9 +152,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\end{minipage} 
+\end{minipage}
 \hfill
-\begin{minipage}[t]{0.25\textwidth} 
+\begin{minipage}[t]{0.25\textwidth}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     SKILLS
@@ -175,7 +188,7 @@ Git \textbullet{} Gulp \textbullet{} Webpack \textbullet{} Heroku    \\ Wordpres
 %     EDUCATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Education} 
+\section{Education}
 \subsection{University of Utah}
 \descript{Master's in Computer Science}
 \location{Jan 2021 - Present | SLC, Utah}
@@ -184,7 +197,7 @@ School of Computing \\
 
 \sectionsep
 \subsection{University of Oregon}
-\descript{Bachelor's in Computer Science 
+\descript{Bachelor's in Computer Science
 \\and Engineering}
 \location{May 2016 | Corvallis, OR}
 School of Computing \\
@@ -195,7 +208,7 @@ School of Computing \\
 % %     REFERENCES
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{References} 
+\section{References}
 \href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
 \begingroup
 \setbox0=\hbox{
@@ -210,7 +223,7 @@ School of Computing \\
 \parbox{\wd0}{\box0}\endgroup
 \\
 \sectionsep
-\href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech 
+\href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
 \\
 \begingroup
 \setbox0=\hbox{
@@ -232,9 +245,9 @@ School of Computing \\
 % \section{Coursework}
 
 % \subsection{Graduate}
-% Graduate Algorithms \textbullet{}\\ 
-% Advanced Computer Architecture \textbullet{}\\ 
-% Operating Systems \textbullet{}\\ 
+% Graduate Algorithms \textbullet{}\\
+% Advanced Computer Architecture \textbullet{}\\
+% Operating Systems \textbullet{}\\
 % Artificial Intelligence \textbullet{}\\
 % Visualization For Scientific Data \\
 % \sectionsep
@@ -247,6 +260,6 @@ School of Computing \\
 % Scripting Languages and Web Tech \textbullet{}\\
 % Software Engineering \\
 
-\end{minipage} 
+\end{minipage}
 \end{document}  \documentclass[]{article}
 
