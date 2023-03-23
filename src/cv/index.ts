@@ -13,7 +13,9 @@ const resume = new ResumeData();
 // Contact
 // **********************************************
 const ME = new ContactData(
-  "Ross Calimlim",
+  "Ross",
+  "F.",
+  "Calimlim",
   "Software Engineer",
   "ross.calimlim@gmail.com"
 )

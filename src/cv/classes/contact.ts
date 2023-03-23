@@ -7,7 +7,9 @@ import {
 } from "../baseData";
 
 export type TContact = {
-  name: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
   title: string;
   email: string;
   currentLocation: Nullable<string>;
@@ -18,7 +20,9 @@ export type TContact = {
 };
 
 export default class ContactData extends Data<TContact> {
-  private name: string;
+  private firstName: string;
+  private middleName: string;
+  private lastName: string;
   private title: string;
   private email: string;
   private currentLocation: Nullable<string> = null;
@@ -27,9 +31,17 @@ export default class ContactData extends Data<TContact> {
   private linkedin: Nullable<THyperlink> = null;
   private site: Nullable<THyperlink> = null;
 
-  constructor(name: string, title: string, email: string) {
+  constructor(
+    firstName: string,
+    middleName: string,
+    lastName: string,
+    title: string,
+    email: string
+  ) {
     super("ContactData");
-    this.name = name;
+    this.firstName = firstName;
+    this.middleName = middleName;
+    this.lastName = lastName;
     this.title = title;
     this.email = email;
   }
@@ -42,7 +54,9 @@ export default class ContactData extends Data<TContact> {
    */
   public read(): TContact {
     return {
-      name: this.name,
+      firstName: this.firstName,
+      middleName: this.middleName,
+      lastName: this.lastName,
       title: this.title,
       email: this.email,
       currentLocation: this.currentLocation,
