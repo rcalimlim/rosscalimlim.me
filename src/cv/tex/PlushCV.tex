@@ -56,9 +56,14 @@ resume =  utilities.json.tolua(s)
 %     TITLE NAME
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{luacode}
+  function getContactInfo(key)
+    tex.print(resume['contact'][key])
+  end
+\end{luacode}
+\newcommand{\getContactInfo}[1]{\directlua{getContactInfo(#1)}}
 
-\directlua{tex.print(resume['contact']['name'])}
-\namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.home.me}{homepage.com}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/}{li-username}}{\href{mailto:first.last@mail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
+\namesection{\getContactInfo{'firstName'}}{\getContactInfo{'lastName'}}{\getContactInfo{'title'}}{\contactline{\href{https://www.home.me}{homepage.com}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/}{li-username}}{\href{mailto:first.last@mail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
 
 % \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
 
