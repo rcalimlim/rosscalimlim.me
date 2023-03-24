@@ -12,6 +12,7 @@ export type TContact = {
   lastName: string;
   title: string;
   email: THyperlink;
+  summary: Nullable<string>;
   currentLocation: Nullable<string>;
   phone: Nullable<THyperlink>;
   github: Nullable<THyperlink>;
@@ -25,6 +26,7 @@ export default class ContactData extends Data<TContact> {
   private lastName: string;
   private title: string;
   private email: THyperlink;
+  private summary: Nullable<string> = null;
   private currentLocation: Nullable<string> = null;
   private phone: Nullable<THyperlink> = null;
   private github: Nullable<THyperlink> = null;
@@ -58,6 +60,7 @@ export default class ContactData extends Data<TContact> {
       middleName: this.middleName,
       lastName: this.lastName,
       title: this.title,
+      summary: this.summary,
       email: this.email,
       currentLocation: this.currentLocation,
       github: this.github,
@@ -74,6 +77,11 @@ export default class ContactData extends Data<TContact> {
   /**
    * chainable methods
    */
+  public setSummary(summary: string): this {
+    this.summary = summary;
+    return this;
+  }
+
   public setCurrentLocation(currentLocation: string): this {
     this.currentLocation = currentLocation;
     return this;

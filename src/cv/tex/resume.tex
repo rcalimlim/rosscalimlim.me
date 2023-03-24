@@ -48,6 +48,7 @@
 
 % require luacode for lua coding
 \usepackage{luacode}
+\usepackage{pgffor}
 
 \begin{document}
 % read in JSON resume data
@@ -73,11 +74,11 @@
   {\directlua{tex.print(contact['lastName'])}}
 \position{\directlua{tex.print(contact['title'])}}
 \address{\directlua{tex.print(contact['currentLocation'])}}
-\mobile{(+82) 10-9030-1843}
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\mobile{\directlua{tex.print(contact['phone']['displayText'])}}
+\email{\directlua{tex.print(contact['email']['displayText'])}}
+\homepage{\directlua{tex.print(contact['site']['displayText'])}}
+\github{\directlua{tex.print(contact['github']['displayText'])}}
+\linkedin{\directlua{tex.print(contact['linkedin']['displayText'])}}
 % \photo[rectangle,edge,right]{./examples/profile}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
@@ -95,15 +96,11 @@
 % Print the header with above personal informations
 % Give optional argument to change alignment(C: center, L: left, R: right)
 
-\makecvheader[C]
+\makecvheader[L]
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {Byungjin Park~~~·~~~Résumé}
-  {\thepage}
-
+\makecvfooter{}{}{}
 
 %-------------------------------------------------------------------------------
 %	CV/RESUME CONTENT
@@ -117,7 +114,6 @@
 \input{resume/committees.tex}
 \input{resume/education.tex}
 \input{resume/extracurricular.tex}
-
 
 %-------------------------------------------------------------------------------
 \end{document}

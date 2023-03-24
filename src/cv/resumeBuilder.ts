@@ -28,11 +28,16 @@ const ME = new ContactData(
   "Software Engineer",
   email.read()
 )
+  .setSummary(
+    "Current Backend Software Engineer at Meta. " +
+      "Experienced with scalable, cloud-native, " +
+      "micro-services, and API design/implementation."
+  )
   .setCurrentLocation("Jersey City, NJ")
   .setSite("rcalimlim.me", "https://rcalimlim.me/")
   .setGithub("rcalimlim", "https://github.com/rcalimlim/")
   .setLinkedin("rcalimlim", "https://www.linkedin.com/in/rcalimlim/")
-  .setPhone("(646) 270-1475", "tel:+16462701475")
+  .setPhone("+1 (646) 270-1475", "tel:+16462701475")
   .read();
 
 // add contact data

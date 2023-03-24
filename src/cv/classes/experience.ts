@@ -6,7 +6,7 @@ export type TExperience = {
   jobTitle: string;
   location: string;
   start: string;
-  end: Nullable<string>;
+  end: string;
   isCurrent: boolean;
   bulletPoints: string[];
 };
@@ -47,7 +47,7 @@ export default class ExperienceData extends Data<TExperience> {
 
     const startFormatted = format(this.start, "MMM yyyy");
     const endFormatted =
-      this.end === null ? null : format(this.end, "MMM yyyy");
+      this.end === null ? "Current" : format(this.end, "MMM yyyy");
     return {
       company: this.company,
       jobTitle: this.jobTitle,

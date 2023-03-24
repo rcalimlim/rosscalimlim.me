@@ -5,7 +5,7 @@ import Degree, { TDegree } from "./degree";
 export type TEducation = {
   organization: string;
   start: string;
-  end: Nullable<string>;
+  end: string;
   isCurrent: boolean;
   degrees: TDegree[];
 };
@@ -41,7 +41,7 @@ export default class EducationData extends Data<TEducation> {
 
     const startFormatted = format(this.start, "MMM yyyy");
     const endFormatted =
-      this.end === null ? null : format(this.end, "MMM yyyy");
+      this.end === null ? "Current" : format(this.end, "MMM yyyy");
     return {
       organization: this.organization,
       start: startFormatted,
