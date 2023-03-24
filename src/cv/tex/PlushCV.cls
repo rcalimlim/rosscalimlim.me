@@ -9,7 +9,7 @@
 \LoadClass{article}
 
 % Package Imports
-\usepackage[lmargin=0.9cm, vmargin=0.85cm, rmargin=0.9cm]{geometry}
+\usepackage[lmargin=1.3cm, vmargin=0.85cm, rmargin=1.3cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
@@ -33,7 +33,7 @@
 %Main Title Font Definitions
 %Used for Name  and Section Headings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def \pathtitlefont {fonts/sourcesanspro/} 
+\def \pathtitlefont {fonts/sourcesanspro/}
 \def \firstnamefont {sourcesanspro-SemiBold}
 \def \secondnamefont {sourcesanspro-light}
 \def \titlefont {\firstnamefont}
@@ -41,7 +41,7 @@
 
 %% Office Code Pro D Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/officecodeprod/} 
+% \def \pathtitlefont {fonts/officecodeprod/}
 % \def \firstnamefont {officecodeprod-medium}
 % \def \secondnamefont {officecodeprod-regular}
 % \def \titlefont {\firstnamefont}
@@ -50,7 +50,7 @@
 
 %% Source Sans Pro Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/sourcesanspro/} 
+% \def \pathtitlefont {fonts/sourcesanspro/}
 % \def \firstnamefont {sourcesanspro-SemiBold}
 % \def \secondnamefont {sourcesanspro-light}
 % \def \titlefont {\firstnamefont}
@@ -58,7 +58,7 @@
 
 %% Source Serif Pro Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/sourceserifpro/} 
+% \def \pathtitlefont {fonts/sourceserifpro/}
 % \def \firstnamefont {sourceserifpro-SemiBold}
 % \def \secondnamefont {sourceserifpro-light}
 % \def \titlefont {\firstnamefont}
@@ -66,7 +66,7 @@
 
 %% Prata Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/prata/} 
+% \def \pathtitlefont {fonts/prata/}
 % \def \firstnamefont {prata-regular}
 % \def \secondnamefont {prata-regular}
 % \def \titlefont {\firstnamefont}
@@ -74,7 +74,7 @@
 
 %% Marcellus Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/marcellus/} 
+% \def \pathtitlefont {fonts/marcellus/}
 % \def \firstnamefont {Marcellus-Regular}
 % \def \secondnamefont {Marcellus-Regular}
 % \def \titlefont {\firstnamefont}
@@ -82,7 +82,7 @@
 
 %% AbrilFatface Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/abril_fatface/} 
+% \def \pathtitlefont {fonts/abril_fatface/}
 % \def \firstnamefont {AbrilFatface-Regular}
 % \def \secondnamefont {AbrilFatface-Regular}
 % \def \titlefont {\firstnamefont}
@@ -90,7 +90,7 @@
 
 %% Merriweather Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/merriweather/} 
+% \def \pathtitlefont {fonts/merriweather/}
 % \def \firstnamefont {Merriweather-Regular}
 % \def \secondnamefont {Merriweather-Light}
 % \def \titlefont {\firstnamefont}
@@ -98,7 +98,7 @@
 
 %% Merriweather Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/oxygen/} 
+% \def \pathtitlefont {fonts/oxygen/}
 % \def \firstnamefont {Oxygen-Regular}
 % \def \secondnamefont {Oxygen-Light}
 % \def \titlefont {\firstnamefont}
@@ -106,7 +106,7 @@
 
 %% Inter Title:
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% \def \pathtitlefont {fonts/inter/} 
+% \def \pathtitlefont {fonts/inter/}
 % \def \firstnamefont {Inter-SemiBold}
 % \def \secondnamefont {inter-light}
 % \def \titlefont {\firstnamefont}
@@ -136,8 +136,8 @@
 \def \locationfont {\subheadingfont}
 \def \locationsize {8pt}
 
-%Main Monospace Font Definitions 
-%Used for Job Title and Contact Line 
+%Main Monospace Font Definitions
+%Used for Job Title and Contact Line
 \def \pathmonofont {fonts/officecodeprod/}
 \def \monofont {OfficeCodeProD-Light}
 
@@ -155,7 +155,7 @@
 \setlength{\TPHorizModule}{1mm}
 \setlength{\TPVertModule}{1mm}
 \newcommand{\lastupdated}{\begin{textblock}{60}(155,5)
-\color{date}\fontspec[Path = \pathmainfont]{\mainfont}\fontsize{8pt}{10pt}\selectfont 
+\color{date}\fontspec[Path = \pathmainfont]{\mainfont}\fontsize{8pt}{10pt}\selectfont
 Last Updated on \today
 \end{textblock}}
 
@@ -166,7 +166,7 @@ Last Updated on \today
 \RaggedRight{
 \color{title}
 \fontsize{50pt}{60pt}
-\fontspec[Path = \pathtitlefont]{\firstnamefont}\selectfont #1 
+\fontspec[Path = \pathtitlefont]{\firstnamefont}\selectfont #1
 \fontspec[Path = \pathtitlefont]{\secondnamefont}\selectfont #2
 } \\[5pt]
 
@@ -178,7 +178,7 @@ Last Updated on \today
 \noindent\makebox[\linewidth]{\color{title}\rule{\paperwidth}{0pt}}
 \vspace{-15pt}
 
-\RaggedRight{\fontspec[Path = \pathmonofont]{\monofont}\fontsize{10pt}{14pt}\selectfont #4}
+\RaggedRight{\fontspec[Path = \pathmonofont]{\monofont}\fontsize{9pt}{14pt}\selectfont #4}
 
 \noindent\makebox[\linewidth]{\color{title}\rule{\paperwidth}{0pt}}
 \vspace{-15pt}
@@ -213,11 +213,11 @@ Last Updated on \today
 %Contact Line
 \newcommand{\contactline}[5]{\begingroup
 \setbox0=\hbox{
-\includegraphics[scale=0.23,trim={1.4cm 1.25cm -0.4cm 0cm}]{icons/main/home.png}{#1}\hspace{0.3cm}
-\includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/github.png}{#2}\hspace{0.3cm}
-\includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/linkedin.png}{#3}\hspace{0.3cm}
-\includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/mail.png}{#4}\hspace{0.3cm}
-\includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/phone.png}{#5}
+\includegraphics[scale=0.18,trim={1.4cm 1.25cm -0.4cm 0cm}]{icons/main/home.png}{#1}\hspace{0.3cm}
+\includegraphics[scale=0.18,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/github.png}{#2}\hspace{0.3cm}
+\includegraphics[scale=0.18,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/linkedin.png}{#3}\hspace{0.3cm}
+\includegraphics[scale=0.18,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/mail.png}{#4}\hspace{0.3cm}
+\includegraphics[scale=0.18,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/phone.png}{#5}
 }\parbox{\wd0}{\box0}\endgroup}
 
 %Inline Centered Logo

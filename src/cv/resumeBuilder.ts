@@ -3,6 +3,7 @@ import ContactData from "./classes/contact";
 import ExperienceData from "./classes/experience";
 import SkillData, { SkillType } from "./classes/skill";
 import EducationData from "./classes/education";
+import { HyperlinkData } from "./common";
 
 /**
  * Build resume then output to json file
@@ -16,17 +17,22 @@ const resume = new ResumeData();
 // **********************************************
 // Contact
 // **********************************************
+const email = new HyperlinkData(
+  "ross.calimlim@gmail.com",
+  "mailto:ross.calimlim@gmail.com"
+);
 const ME = new ContactData(
   "Ross",
   "F.",
   "Calimlim",
   "Software Engineer",
-  "ross.calimlim@gmail.com"
+  email.read()
 )
   .setCurrentLocation("Jersey City, NJ")
+  .setSite("rcalimlim.me", "https://rcalimlim.me/")
   .setGithub("rcalimlim", "https://github.com/rcalimlim/")
   .setLinkedin("rcalimlim", "https://www.linkedin.com/in/rcalimlim/")
-  .setPhone("(646) 270-1475")
+  .setPhone("(646) 270-1475", "tel:+16462701475")
   .read();
 
 // add contact data

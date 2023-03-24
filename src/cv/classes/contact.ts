@@ -11,9 +11,9 @@ export type TContact = {
   middleName: string;
   lastName: string;
   title: string;
-  email: string;
+  email: THyperlink;
   currentLocation: Nullable<string>;
-  phone: Nullable<string>;
+  phone: Nullable<THyperlink>;
   github: Nullable<THyperlink>;
   linkedin: Nullable<THyperlink>;
   site: Nullable<THyperlink>;
@@ -24,9 +24,9 @@ export default class ContactData extends Data<TContact> {
   private middleName: string;
   private lastName: string;
   private title: string;
-  private email: string;
+  private email: THyperlink;
   private currentLocation: Nullable<string> = null;
-  private phone: Nullable<string> = null;
+  private phone: Nullable<THyperlink> = null;
   private github: Nullable<THyperlink> = null;
   private linkedin: Nullable<THyperlink> = null;
   private site: Nullable<THyperlink> = null;
@@ -36,7 +36,7 @@ export default class ContactData extends Data<TContact> {
     middleName: string,
     lastName: string,
     title: string,
-    email: string
+    email: THyperlink
   ) {
     super("ContactData");
     this.firstName = firstName;
@@ -79,8 +79,8 @@ export default class ContactData extends Data<TContact> {
     return this;
   }
 
-  public setPhone(phone: string): this {
-    this.phone = phone;
+  public setPhone(displayName: string, url: string): this {
+    this.phone = new HyperlinkData(displayName, url).read();
     return this;
   }
 

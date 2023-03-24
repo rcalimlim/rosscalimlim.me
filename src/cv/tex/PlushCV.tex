@@ -9,8 +9,8 @@
 % Hacked together from:
 % https://github.com/deedydas/Deedy-Resume
 %
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
+% Adapted for LuaLatex by:
+% Ross Calimlim (http://rcalimlim.me)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -29,8 +29,8 @@
 % Known Issues:
 % 1. Overflows onto second page if any column's contents are more than the vertical limit.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%Icons:
-%%Main: https://icons8.com/icons/carbon-copy
+% Icons:
+% Main: https://icons8.com/icons/carbon-copy
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[]{PlushCV}
@@ -57,15 +57,39 @@ resume =  utilities.json.tolua(s)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{luacode}
+  % lua helper functions for ContactData
   function getContactInfo(key)
     tex.print(resume['contact'][key])
   end
+
+  function getHomePageInfo(key)
+    tex.print(resume['contact']['site'][key])
+  end
+
+  function getGitHubPageInfo(key)
+    tex.print(resume['contact']['github'][key])
+  end
+
+  function getLinkedInPageInfo(key)
+    tex.print(resume['contact']['linkedin'][key])
+  end
+
+  function getEmailInfo(key)
+    tex.print(resume['contact']['email'][key])
+  end
+
+  function getPhoneInfo(key)
+    tex.print(resume['contact']['phone'][key])
+  end
 \end{luacode}
 \newcommand{\getContactInfo}[1]{\directlua{getContactInfo(#1)}}
+\newcommand{\getHomePageInfo}[1]{\directlua{getHomePageInfo(#1)}}
+\newcommand{\getGitHubPageInfo}[1]{\directlua{getGitHubPageInfo(#1)}}
+\newcommand{\getLinkedInPageInfo}[1]{\directlua{getLinkedInPageInfo(#1)}}
+\newcommand{\getEmailInfo}[1]{\directlua{getEmailInfo(#1)}}
+\newcommand{\getPhoneInfo}[1]{\directlua{getPhoneInfo(#1)}}
 
-\namesection{\getContactInfo{'firstName'}}{\getContactInfo{'lastName'}}{\getContactInfo{'title'}}{\contactline{\href{https://www.home.me}{homepage.com}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/}{li-username}}{\href{mailto:first.last@mail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
-
-% \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
+\namesection{\getContactInfo{'firstName'}}{\getContactInfo{'lastName'}}{\getContactInfo{'title'}}{\contactline{\href{\getHomePageInfo{'url'}}{\getHomePageInfo{'displayText'}}}{\href{\getGitHubPageInfo{'url'}}{\getGitHubPageInfo{'displayText'}}}{\href{\getLinkedInPageInfo{'url'}}{\getLinkedInPageInfo{'displayText'}}}{\href{\getEmailInfo{'url'}}{\getEmailInfo{'displayText'}}}{\href{\getPhoneInfo{'url'}}{\getPhoneInfo{'displayText'}}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -74,7 +98,6 @@ resume =  utilities.json.tolua(s)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{minipage}[t]{0.70\textwidth}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     EXPERIENCE
@@ -213,35 +236,35 @@ School of Computing \\
 % %     REFERENCES
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{References}
-\href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} john.doe@email.com
-}
-\parbox{\wd0}{\box0}
-\endgroup
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
-}
-\parbox{\wd0}{\box0}\endgroup
-\\
-\sectionsep
-\href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
-\\
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} jane.doe@email.com
-}
-\parbox{\wd0}{\box0}
-\endgroup
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
-}
-\parbox{\wd0}{\box0}\endgroup
-\\
+% \section{References}
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} john.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
+% \sectionsep
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
+% \\
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} jane.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     COURSEWORK
