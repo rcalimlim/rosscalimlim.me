@@ -1,88 +1,117 @@
-PlushCV
-=========================
+<h1 align="center">
+  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
+    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
+  </a>
+  <br />
+  Awesome CV
+</h1>
 
-A **one-page**, **two asymmetric column** resume template in **XeTeX** that caters particularly to  Computer Science students.
-Has a bunch of font options as listed in Preview. Inspired by [**deedy-resume**](https://github.com/deedy/Deedy-Resume). 
+<p align="center">
+  LaTeX template for your outstanding job application
+</p>
 
-Easiest way to create your own is to use the Overleaf template linked below to edit and compile. 
+<div align="center">
+  <a href="https://www.paypal.me/posquit0">
+    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
+  </a>
+  <a href="https://circleci.com/gh/posquit0/Awesome-CV">
+    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
+    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
+    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
+  </a>
+  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
+    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
+  </a>
+</div>
 
-It is licensed under the Apache License 2.0.
+<br />
 
-## Dependencies
+## What is Awesome CV?
 
-1. Compiles only with **XeTeX** and required **BibTex** for compiling publications and the .bib filetype.
+**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
 
-## Availability
 
-1. OpenFonts version - [as a direct download](https://github.com/deedydas/Deedy-Resume/raw/master/OpenFonts/deedy_resume-openfont.pdf)
-2. **Overleaf**.com 
+## Donate
 
-## Previews
+Please help keep this project alive! Donations are welcome and will go towards further development of this project.
 
-**Merriweather**
+    PayPal: paypal.me/posquit0
+    BTC: 1Je3DxJVM2a9nTVPNo55SfQwpmxA6N2KKb
+    BCH: 1Mg1wG7PwHGrHYSWS67TsGSjo5GHEVbF16
+    ETH: 0x77ED9B4659F80205E9B9C9FB1E26EDB9904AFCC7
+    QTUM: QZT7D6m3QtTTqp7s4ZWAwLtGDsoHMMaM8E
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-merriweather-sample.png)
+*Thank you for your support!*
 
-**Source Serif Pro**
+## Preview
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-sourceserifpro-sample.png)
+#### Résumé
 
-**Inter**
+You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-inter-sample.png)
+| Page. 1 | Page. 2 |
+|:---:|:---:|
+| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
 
-**Office Code Pro**
+#### Cover Letter
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-officecodeprod-sample.png)
+You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
 
-**Oxygen**
+| Without Sections | With Sections |
+|:---:|:---:|
+| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-oxygen-sample.png)
 
-**Prata**
+## Quick Start
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-prata-sample.png)
+* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
+* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
 
-**Source Sans Pro**
+**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-sourcesanspro-sample.png)
 
-**Marcellus**
+## How to Use
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-marcellus-sample.png)
+#### Requirements
 
-**Abril**
+A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
+You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
 
-![alt tag](https://github.com/sansquoi/PlushCV/blob/main/previews/plushcv-abril-sample.png)
+#### Usage
 
-## Changelog
+At a command prompt, run
 
-### v1.1
+```bash
+$ xelatex {your-cv}.tex
+```
 
-  1. Added more font options.
-  2. Added icons for contact line, fixed alignment.
-  3. Removed "Awards".
+This should result in the creation of ``{your-cv}.pdf``
 
-## TODO
 
-1. Add more font options.
-2. Allow for multiple pages and overflow.
+## Credit
 
-## Known Issues:
+[**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
 
-1. Overflows if vertical limit reached.
-2. First bullet point on the second column needs a proper fix.
+[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
 
-## License
+[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-    
-       http://www.apache.org/licenses/LICENSE-2.0
-    
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+
+
+## Contact
+
+You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
+
+If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
+
+Good luck!
+
+
+## See Also
+
+* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
