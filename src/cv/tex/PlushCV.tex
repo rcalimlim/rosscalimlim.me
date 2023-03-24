@@ -56,8 +56,8 @@ resume =  utilities.json.tolua(s)
 %     TITLE NAME
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% lua helper functions for ContactData
 \begin{luacode}
-  % lua helper functions for ContactData
   function getContactInfo(key)
     tex.print(resume['contact'][key])
   end
@@ -102,65 +102,50 @@ resume =  utilities.json.tolua(s)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     EXPERIENCE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	  % for _,bullet in ipairs(exp['bulletPoints']) do
+	  %   tex.sprint("\\item ");
+	  % end
 
 \section{Experience}
-\runsubsection{Weyland Yutani Industries}
-\descript{| Program Manager}
-\location{May 2021 – Current | Tokyo, Japan}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus. \item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Tessier-Ashpoole S.A.}
-\descript{| Software Developer }
-\location{July 2016 – March 2019 | Villa Straylight, U.S.}
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus.
-\item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{LexCorp}
-\descript{| Software Developer }
-\location{July 2012 – March 2016 | Metropolis}
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus.
- rhoncus.
-\end{tightemize}
-\sectionsep
-
+\directlua{
+  \detokenize{
+    for _,exp in ipairs(resume['experience']) do
+	tex.sprint("\\runsubsection{" .. exp['company'] .. "}")
+	tex.sprint("\\descript{| " .. exp['jobTitle'] .. "}")
+	tex.sprint("\\location{" .. exp['location'] .. "}")
+	tex.sprint("\\begin{itemize}")
+	tex.sprint("\\sectionsep")
+	tex.sprint("\\item ")
+	tex.sprint("\\end{itemize}")
+	tex.sprint("\\sectionsep")
+    end
+  }
+}
+% \runsubsection{Weyland Yutani Industries}
+% \descript{| Program Manager}
+% \location{May 2021 – Current | Tokyo, Japan}
+% \vspace{\topsep} % Hacky fix for awkward extra vertical space
+% \begin{tightemize}
+% \sectionsep
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
+% \item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus. \item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
+% \end{tightemize}
+% \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Projects
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Projects}
+% \section{Projects}
 
-\runsubsection{Chess Engine}
-\descript{| C++}
-\location{2018}
-\begin{tightemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Speech-enabled Chatbot}
-\descript{| C\#, Microsoft Bot Framework}
-\location{2018}
-\begin{tightemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
-\end{tightemize}
-\sectionsep
+% \runsubsection{Chess Engine}
+% \descript{| C++}
+% \location{2018}
+% \begin{tightemize}
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
+% \end{tightemize}
+% \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     AWARDS
