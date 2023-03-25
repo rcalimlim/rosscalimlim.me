@@ -16,19 +16,29 @@
 
 
 %---------------------------------------------------------
-\directlua {
-  for m,exp in ipairs(resume["experience"]) do
-    local txt = "\\cventry"
-    txt = txt.."{"..exp["jobTitle"].."}"
-    txt = txt.."{"..exp["company"].."}"
-    txt = txt.."{"..exp["location"].."}"
-    txt = txt.."{"..exp["start"].."}"
-    txt = txt.."{}"
-    txt = txt.."\\vspace{3mm}"
 
-    tex.sprint(txt)
+\begin{luacode}
+  for k,exp in ipairs(resume['experience']) do
+    local items = '\\begin{cvitems}'
+    for j,bullet in ipairs(exp['bulletPoints']) do
+    items = items .. string.format('\\item {\%s}', bullet)
+    end
+    items = items .. '\\end{cvitems}'
+
+    tex.sprint(
+      string.format(
+        '\\cventry{\%s}{\%s}{\%s}{\%s - \%s}{\%s}',
+        exp['jobTitle'],
+        exp['company'],
+        exp['location'],
+        exp['start'],
+        exp['end'],
+        items
+      )
+    )
+    tex.sprint('\\vspace{3mm}')
   end
-}
+\end{luacode}
 
 % \cventry
 %   {Some Job} % Job title
