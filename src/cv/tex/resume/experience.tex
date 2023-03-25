@@ -16,41 +16,35 @@
 
 
 %---------------------------------------------------------
-    % result = "\\cventry"
-    % result = result .. "{" .. exp['jobTitle'] .. "}"
-    % result = result .. "{" .. exp['company'] .. "}"
-    % result = result .. "{" .. exp['location'] .. "}"
-    % result = result .. "{" .. exp['start'] .. " - " .. exp['end'] .. "}"
-    % result = result .. "{}"
+\directlua {
+  for m,exp in ipairs(resume["experience"]) do
+    local txt = "\\cventry"
+    txt = txt.."{"..exp["jobTitle"].."}"
+    txt = txt.."{"..exp["company"].."}"
+    txt = txt.."{"..exp["location"].."}"
+    txt = txt.."{"..exp["start"].."}"
+    txt = txt.."{}"
+    txt = txt.."\\vspace{3mm}"
 
-    % tex.sprint(result)
-\directlua{\detokenize{
-  for key,exp in ipairs(resume['experience']) do
-    result = "\\cventry"
-    result = result .. "{" .. exp['jobTitle'] .. "}"
-    result = result .. "{" .. exp['company'] .. "}"
-    result = result .. "{" .. exp['location'] .. "}"
-    result = result .. "{" .. exp['start'] .. " - " .. exp['end'] .. "}"
-    result = result .. "{\\begin{cvitems}\\item {something}\\end{cvitems}}"
-    tex.sprint(result)
+    tex.sprint(txt)
   end
-}}
+}
 
-  \cventry
-    {} % Job title
-    {Omnious. Co., Ltd.} % Organization
-    {Seoul, S.Korea} % Location
-    {Jun. 2017 - May. 2018} % Date(s)
-    {
-      \begin{cvitems} % Description(s) of tasks/responsibilities
-        \item {Provisioned an easily managable hybrid infrastructure(Amazon AWS + On-premise) utilizing IaC(Infrastructure as Code) tools like Ansible, Packer and Terraform.}
-        \item {Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR and Rancher.}
-        \item {Designed an overall service architecture and pipelines of the Machine Learning based Fashion Tagging API SaaS product with the micro-services architecture.}
-        \item {Implemented several API microservices in Node.js Koa and in the serverless AWS Lambda functions.}
-        \item {Deployed a centralized logging environment(ELK, Filebeat, CloudWatch, S3) which gather log data from docker containers and AWS resources.}
-        \item {Deployed a centralized monitoring environment(Grafana, InfluxDB, CollectD) which gather system metrics as well as docker run-time metrics.}
-      \end{cvitems}
-    }
+% \cventry
+%   {Some Job} % Job title
+%   {Omnious. Co., Ltd.} % Organization
+%   {Seoul, S.Korea} % Location
+%   {Jun. 2017 - May. 2018} % Date(s)
+%   {
+%     \begin{cvitems} % Description(s) of tasks/responsibilities
+%       \item {Provisioned an easily managable hybrid infrastructure(Amazon AWS + On-premise) utilizing IaC(Infrastructure as Code) tools like Ansible, Packer and Terraform.}
+%       \item {Built fully automated CI/CD pipelines on CircleCI for containerized applications using Docker, AWS ECR and Rancher.}
+%       \item {Designed an overall service architecture and pipelines of the Machine Learning based Fashion Tagging API SaaS product with the micro-services architecture.}
+%       \item {Implemented several API microservices in Node.js Koa and in the serverless AWS Lambda functions.}
+%       \item {Deployed a centralized logging environment(ELK, Filebeat, CloudWatch, S3) which gather log data from docker containers and AWS resources.}
+%       \item {Deployed a centralized monitoring environment(Grafana, InfluxDB, CollectD) which gather system metrics as well as docker run-time metrics.}
+%     \end{cvitems}
+%   }
 
 %---------------------------------------------------------
 \end{cventries}
