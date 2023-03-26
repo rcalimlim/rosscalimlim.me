@@ -168,12 +168,14 @@ resume.setSkills([DEVELOPMENT, TESTING_AND_DEPLOYMENT, DEVELOPER_TOOLS]);
 // Education
 // **********************************************
 const HACK_REACTOR = new EducationData("Hack Reactor")
+  .setLocation("Austin, TX")
   .setStart(new Date(2019, 4))
   .setEnd(new Date(2019, 7))
   .addDegree("Certificate", "Advanced Software Engineering Immersive")
   .read();
 
 const BARUCH = new EducationData("Baruch College, CUNY")
+  .setLocation("New York City, NY")
   .setStart(new Date(2011, 10))
   .setEnd(new Date(2016, 2))
   .addDegree("Bachelor of Business Administration", "Finance")
