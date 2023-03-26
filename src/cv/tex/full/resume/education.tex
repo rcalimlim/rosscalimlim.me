@@ -15,11 +15,11 @@
     for k,edu in ipairs(resume['education']) do
       tex.sprint(
         string.format(
-          '\\cventry{\%s | \%s}{\%s}{\%s}{\%s - \%s}{}',
+          '\\cventry{\%s, \%s}{\%s}{\%s}{\%s - \%s}{}',
           edu['degrees'][1]['degreeName'],
           edu['degrees'][1]['focus'],
           edu['organization'],
-          'location',
+          edu['location'],
           edu['start'],
           edu['end']
         )
