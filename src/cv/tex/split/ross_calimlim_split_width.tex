@@ -51,6 +51,7 @@
   f:close()
   resume =  utilities.json.tolua(s)
 \end{luacode}
+\newcommand\pr[1]{\directlua{tex.sprint(#1)}}
 
 \begin{document}
 
@@ -60,30 +61,29 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% TODO: fix these lame functions
 \begin{luacode}
   function contact(k, j)
     if j == '' then
       tex.sprint(resume['contact'][k])
     else
-      texio.write('****************************************')
-      texio.write(resume['contact'][k][j])
       tex.sprint(resume['contact'][k][j])
     end
   end
 \end{luacode}
-\newcommand\getcontact[2]{\directlua{contact('#1','#2')}}
+\newcommand\contact[2]{\directlua{contact('#1','#2')}}
 
 \namesection
-  {\getcontact{firstName}{}}
-  {\getcontact{lastName}{}}
-  {\getcontact{title}{}}
+  {\contact{firstName}{}}
+  {\contact{lastName}{}}
+  {\contact{title}{}}
   {
     \contactline
-      {\href{\getcontact{site}{url}}{\getcontact{site}{displayText}}}
-      {\href{\getcontact{github}{url}}{\getcontact{github}{displayText}}}
-      {\href{\getcontact{linkedin}{url}}{\getcontact{linkedin}{displayText}}}
-      {\href{\getcontact{email}{url}}{\getcontact{email}{displayText}}}
-      {\href{\getcontact{phone}{url}}{\getcontact{phone}{displayText}}}
+      {\href{\contact{site}{url}}{\contact{site}{displayText}}}
+      {\href{\contact{github}{url}}{\contact{github}{displayText}}}
+      {\href{\contact{linkedin}{url}}{\contact{linkedin}{displayText}}}
+      {\href{\contact{email}{url}}{\contact{email}{displayText}}}
+      {\href{\contact{phone}{url}}{\contact{phone}{displayText}}}
   }
 
 % \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
@@ -102,63 +102,57 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Experience}
-\runsubsection{Weyland Yutani Industries}
-\descript{| Program Manager}
-\location{May 2021 – Current | Tokyo, Japan}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus. \item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
-\end{tightemize}
-\sectionsep
 
-\runsubsection{Tessier-Ashpoole S.A.}
-\descript{| Software Developer }
-\location{July 2016 – March 2019 | Villa Straylight, U.S.}
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus.
-\item Cras posuere in nunc vel sagittis. Aliquam aliquet non orci id pellentesque. Nulla gravida lectus quis tellus rhoncus rhoncus.
-\end{tightemize}
-\sectionsep
+\begin{luacode}
+  for k, exp in ipairs(resume['experience']) do
 
-\runsubsection{LexCorp}
-\descript{| Software Developer }
-\location{July 2012 – March 2016 | Metropolis}
-\begin{tightemize}
-\sectionsep
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Ut consectetur tempus tincidunt. Curabitur in felis et leo elementum facilisis at non metus. Vestibulum et ullamcorper augue, nec accumsan tellus.
- rhoncus.
-\end{tightemize}
-\sectionsep
+    local items = ''
+    for j,bullet in ipairs(exp['bulletPoints']) do
+      items = items .. string.format('\\item \%s', bullet)
+    end
 
+    local vsp = ''
+    if k == 1 then
+      vsp = '\\vspace{\\topsep}'
+    end
+
+    tex.sprint(
+      string.format(
+	'\\runsubsection{\%s}' ..
+	'\\descript{| \%s}' ..
+	'\\location{\%s - \%s | \%s}' ..
+	vsp ..
+	'\\begin{tightemize}' ..
+	'\\sectionsep' ..
+	'\%s' ..
+	'\\end{tightemize}' ..
+	'\\sectionsep' ..
+	'\\vspace{3mm}',
+	exp['company'],
+	exp['jobTitle'],
+	exp['start'],
+	exp['end'],
+	exp['location'],
+	items
+      )
+    )
+  end
+\end{luacode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Projects
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Projects}
+% \section{Projects}
 
-\runsubsection{Chess Engine}
-\descript{| C++}
-\location{2018}
-\begin{tightemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Speech-enabled Chatbot}
-\descript{| C\#, Microsoft Bot Framework}
-\location{2018}
-\begin{tightemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
-\end{tightemize}
-\sectionsep
+% \runsubsection{Speech-enabled Chatbot}
+% \descript{| C\#, Microsoft Bot Framework}
+% \location{2018}
+% \begin{tightemize}
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
+% \end{tightemize}
+% \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     AWARDS
