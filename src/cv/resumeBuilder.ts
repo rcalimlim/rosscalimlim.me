@@ -37,7 +37,7 @@ const ME = new ContactData(
   .setSite("rcalimlim.me", "https://rcalimlim.me/")
   .setGithub("rcalimlim", "https://github.com/rcalimlim/")
   .setLinkedin("rcalimlim", "https://www.linkedin.com/in/rcalimlim/")
-  .setPhone("+1 (646) 270-1475", "tel:+16462701475")
+  .setPhone("+16462701475", "tel:+16462701475")
   .read();
 
 // add contact data
