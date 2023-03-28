@@ -36,6 +36,8 @@
 \documentclass[]{plushcv}
 \usepackage{fancyhdr}
 \usepackage{luacode}
+% \usepackage[none]{hyphenat} % disable word hyphenation
+% \righthyphenmin10
 \pagestyle{fancy}
 \fancyhf{}
 
@@ -180,83 +182,135 @@
 %     SKILLS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Skills}
-\subsection{Programming}
-\sectionsep
-\location{Proficient:}
-C\# \textbullet{} C \textbullet{} JavaScript \textbullet{} Python    \\ SQL \textbullet{} CSS \textbullet{} HTML \textbullet{} \\
-\sectionsep
-\location{Experienced:}
-Python \textbullet{} \LaTeX\ \textbullet{}  C++  \\
-\sectionsep
-\location{Familiar:}
-Java \textbullet{}  Shell \textbullet{} Assembly \\
-\sectionsep
-\sectionsep
-\subsection{Libraries/Frameworks}
-\sectionsep
-jQuery \textbullet{} Node.js \textbullet{} Jekyll \textbullet{} React \\
-\sectionsep
-\sectionsep
-\subsection{Tools/Platforms}
-\sectionsep
-Git \textbullet{} Gulp \textbullet{} Webpack \textbullet{} Heroku    \\ Wordpress \textbullet{} Docker \\
 
+\section{Skills}
 \sectionsep
+
+\begin{luacode}
+
+  for k,skillEntry in ipairs(resume['skills']) do
+    local skills = skillEntry['skills']
+    local items = ''
+    for j,sk in ipairs(skills) do
+      items = items .. string.format(' \%s', sk)
+      if j < #skills then
+	items = items .. ',  '
+      end
+    end
+    items = string.gsub(items, '\#', '\\\#')
+
+    tex.sprint(
+      string.format(
+	'\\subsection{\%s}' ..
+	'\\sectionsep' ..
+	'\%s' ..
+	'\\sectionsep' ..
+	'\\sectionsep',
+	skillEntry['skillType'],
+	items
+      )
+    )
+  end
+
+\end{luacode}
+
+% \location{Familiar:}
+% Java \textbullet{}  Shell \textbullet{} Assembly \\
+% \sectionsep
+% \sectionsep
+% \subsection{Libraries/Frameworks}
+% \sectionsep
+% jQuery \textbullet{} Node.js \textbullet{} Jekyll \textbullet{} React \\
+% \sectionsep
+% \sectionsep
+% \subsection{Tools/Platforms}
+% \sectionsep
+% Git \textbullet{} Gulp \textbullet{} Webpack \textbullet{} Heroku    \\ Wordpress \textbullet{} Docker \\
+
+% \sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     EDUCATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Education}
-\subsection{University of Utah}
-\descript{Master's in Computer Science}
-\location{Jan 2021 - Present | SLC, Utah}
-School of Computing \\
-\location{ Cum. GPA: 3.85 / 4.0 }
+\begin{luacode}
+  for j,edu in ipairs(resume['education']) do
+    local items = ''
+    for k,degree in ipairs(edu['degrees']) do
+      items = items .. string.format(
+	'\\textbullet{}\\descript{\%s in \%s}',
+	degree['degreeName'],
+	degree['focus']
+      )
+    end
 
-\sectionsep
-\subsection{University of Oregon}
-\descript{Bachelor's in Computer Science
-\\and Engineering}
-\location{May 2016 | Corvallis, OR}
-School of Computing \\
-\location{ Cum. GPA: 3.7 / 4.0 }
-\sectionsep
+    tex.sprint(
+      string.format(
+	'\\subsection{\%s}' ..
+	'\\location{\%s - \%s | \%s}' ..
+	'\%s' ..
+	'\\sectionsep' ..
+	'\\sectionsep',
+	edu['organization'],
+	edu['start'],
+	edu['end'],
+	edu['location'],
+	items
+      )
+    )
+  end
+\end{luacode}
+
+% \section{Education}
+% \subsection{University of Utah}
+% \descript{Master's in Computer Science}
+% \location{Jan 2021 - Present | SLC, Utah}
+% School of Computing \\
+% \location{ Cum. GPA: 3.85 / 4.0 }
+
+% \sectionsep
+% \subsection{University of Oregon}
+% \descript{Bachelor's in Computer Science
+% \\and Engineering}
+% \location{May 2016 | Corvallis, OR}
+% School of Computing \\
+% \location{ Cum. GPA: 3.7 / 4.0 }
+% \sectionsep
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %     REFERENCES
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{References}
-\href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} john.doe@email.com
-}
-\parbox{\wd0}{\box0}
-\endgroup
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
-}
-\parbox{\wd0}{\box0}\endgroup
-\\
-\sectionsep
-\href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
-\\
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} jane.doe@email.com
-}
-\parbox{\wd0}{\box0}
-\endgroup
-\begingroup
-\setbox0=\hbox{
-\includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
-}
-\parbox{\wd0}{\box0}\endgroup
-\\
+% \section{References}
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} john.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
+% \sectionsep
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
+% \\
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} jane.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     COURSEWORK
