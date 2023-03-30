@@ -19,3 +19,11 @@ jobs:
 
       - name: Build site
         run: yarn buildSite
+
+      - name: latexmk-action
+        uses: yegor256/latexmk-action@0.7.1
+        with:
+          cmd: latexmk
+          path: src/cv/tex/
+          opts: -pdf
+          packages: acmart tikz
