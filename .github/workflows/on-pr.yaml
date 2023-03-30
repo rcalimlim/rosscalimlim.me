@@ -19,6 +19,3 @@ jobs:
 
       - name: Build site
         run: yarn buildSite
-
-      - name: Build latex
-        uses: reitermarkus/latexmk@v1.0.4
