@@ -8,11 +8,10 @@
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
     "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
-    "compileLatexFullWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../../dist/files src/cv/tex/full/ross_calimlim_full_width",
-    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../../dist/files src/cv/tex/split/ross_calimlim_split_width",
+    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume",
     "buildSite": "eleventy && yarn genPageSize && eleventy",
-    "buildResumes": "yarn genResumeJson && yarn compileLatexFullWidth && yarn compileLatexSplitWidth",
-    "build": "yarn clean && yarn buildSite && yarn buildResumes",
+    "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth",
+    "build": "yarn clean && yarn buildSite && yarn buildResume",
     "start": "yarn build && eleventy --serve"
   },
   "devDependencies": {
