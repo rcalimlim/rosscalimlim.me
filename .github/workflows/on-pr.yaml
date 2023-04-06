@@ -5,17 +5,30 @@ on:
     branches: [main]
 
 jobs:
-  build_check:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: sergeysova/jq-action@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18
 
-      - name: install
+      - name: install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: build
-        run: yarn build
+      - name: build site
+        run: yarn buildSite
+
+      - name: gen resume data
+        run: yarn genResumeJson
+
+      - name: build resume
+        uses: addnab/docker-run-action@v3
+        with:
+          image: rosscalimlim/docker-latexmk
+          shell: bash
+          options: -v ${{ github.workspace }}:/data
+          run: |
+            ls -al /root
+            bash /root/entry.sh -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume

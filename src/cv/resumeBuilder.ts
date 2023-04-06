@@ -1,8 +1,13 @@
-import ResumeData from "./resume";
+import ResumeData from "./classes/resume";
 import ContactData from "./classes/contact";
 import ExperienceData from "./classes/experience";
 import SkillData, { SkillType } from "./classes/skill";
 import EducationData from "./classes/education";
+import { HyperlinkData } from "./common";
+
+/**
+ * Build resume then output to json file
+ */
 
 // **********************************************
 // Begin resume
@@ -12,17 +17,27 @@ const resume = new ResumeData();
 // **********************************************
 // Contact
 // **********************************************
+const email = new HyperlinkData(
+  "ross.calimlim@gmail.com",
+  "mailto:ross.calimlim@gmail.com"
+);
 const ME = new ContactData(
   "Ross",
   "F.",
   "Calimlim",
   "Software Engineer",
-  "ross.calimlim@gmail.com"
+  email.read()
 )
+  .setSummary(
+    "Current Backend Software Engineer at Meta. " +
+      "Experienced with scalable, cloud-native, " +
+      "micro-services, and API design/implementation."
+  )
   .setCurrentLocation("Jersey City, NJ")
+  .setSite("rcalimlim.me", "https://rcalimlim.me/")
   .setGithub("rcalimlim", "https://github.com/rcalimlim/")
   .setLinkedin("rcalimlim", "https://www.linkedin.com/in/rcalimlim/")
-  .setPhone("(646) 270-1475")
+  .setPhone("+16462701475", "tel:+16462701475")
   .read();
 
 // add contact data
@@ -153,12 +168,14 @@ resume.setSkills([DEVELOPMENT, TESTING_AND_DEPLOYMENT, DEVELOPER_TOOLS]);
 // Education
 // **********************************************
 const HACK_REACTOR = new EducationData("Hack Reactor")
+  .setLocation("Austin, TX")
   .setStart(new Date(2019, 4))
   .setEnd(new Date(2019, 7))
   .addDegree("Certificate", "Advanced Software Engineering Immersive")
   .read();
 
 const BARUCH = new EducationData("Baruch College, CUNY")
+  .setLocation("New York City, NY")
   .setStart(new Date(2011, 10))
   .setEnd(new Date(2016, 2))
   .addDegree("Bachelor of Business Administration", "Finance")
@@ -168,4 +185,4 @@ const BARUCH = new EducationData("Baruch College, CUNY")
 // set education in order
 resume.setEducation([HACK_REACTOR, BARUCH]);
 
-console.log(resume.read());
+export default resume;

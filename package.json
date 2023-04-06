@@ -6,15 +6,18 @@
   "description": "Ross F. Calimlim's portfolio site.",
   "scripts": {
     "clean": "rimraf dist",
-    "generate": "bash scripts/page-size-data.sh",
-    "latex": "mkdir dist/files && lualatex --output-directory dist/files tex/resume.tex",
-    "build": "yarn clean && eleventy && yarn generate && eleventy && yarn latex",
-    "start": "yarn build && yarn generate && eleventy --serve"
+    "genPageSize": "bash scripts/page-size-data.sh",
+    "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
+    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume",
+    "buildSite": "eleventy && yarn genPageSize && eleventy",
+    "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth",
+    "build": "yarn clean && yarn buildSite && yarn buildResume",
+    "start": "yarn build && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@tsconfig/recommended": "^1.0.2",
-    "@types/node": "^18.15.3",
+    "@types/node": "^18.15.5",
     "clean-css": "^5.1.5",
     "date-fns": "^2.23.0",
     "rimraf": "^3.0.2",

@@ -1,16 +1,19 @@
-import { Data, DataError, Nullable } from "../baseData";
+import { format } from "date-fns";
+import { Data, DataError, Nullable } from "../common";
 import Degree, { TDegree } from "./degree";
 
 export type TEducation = {
   organization: string;
-  start: Date;
-  end: Nullable<Date>;
+  location: string;
+  start: string;
+  end: string;
   isCurrent: boolean;
   degrees: TDegree[];
 };
 
 export default class EducationData extends Data<TEducation> {
   private organization: string;
+  private location: Nullable<string> = null;
   private start: Nullable<Date> = null;
   private end: Nullable<Date> = null;
   private degrees: TDegree[] = [];
@@ -37,11 +40,18 @@ export default class EducationData extends Data<TEducation> {
     if (this.degrees.length === 0) {
       throw this.getError("must have at least one degree");
     }
+    if (this.location === null) {
+      throw this.getError("must have a location");
+    }
 
+    const startFormatted = format(this.start, "MMM yyyy");
+    const endFormatted =
+      this.end === null ? "Current" : format(this.end, "MMM yyyy");
     return {
       organization: this.organization,
-      start: this.start,
-      end: this.end,
+      location: this.location,
+      start: startFormatted,
+      end: endFormatted,
       isCurrent: this.isCurrent,
       degrees: this.degrees,
     };
@@ -54,6 +64,10 @@ export default class EducationData extends Data<TEducation> {
   /*
    * chainable methods
    */
+  public setLocation(location: string): this {
+    this.location = location;
+    return this;
+  }
 
   // TODO: implement mixins for time span data
   public setStart(start: Date): this {

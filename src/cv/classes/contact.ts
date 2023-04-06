@@ -4,16 +4,17 @@ import {
   HyperlinkData,
   Nullable,
   THyperlink,
-} from "../baseData";
+} from "../common";
 
 export type TContact = {
   firstName: string;
   middleName: string;
   lastName: string;
   title: string;
-  email: string;
+  email: THyperlink;
+  summary: Nullable<string>;
   currentLocation: Nullable<string>;
-  phone: Nullable<string>;
+  phone: Nullable<THyperlink>;
   github: Nullable<THyperlink>;
   linkedin: Nullable<THyperlink>;
   site: Nullable<THyperlink>;
@@ -24,9 +25,10 @@ export default class ContactData extends Data<TContact> {
   private middleName: string;
   private lastName: string;
   private title: string;
-  private email: string;
+  private email: THyperlink;
+  private summary: Nullable<string> = null;
   private currentLocation: Nullable<string> = null;
-  private phone: Nullable<string> = null;
+  private phone: Nullable<THyperlink> = null;
   private github: Nullable<THyperlink> = null;
   private linkedin: Nullable<THyperlink> = null;
   private site: Nullable<THyperlink> = null;
@@ -36,7 +38,7 @@ export default class ContactData extends Data<TContact> {
     middleName: string,
     lastName: string,
     title: string,
-    email: string
+    email: THyperlink
   ) {
     super("ContactData");
     this.firstName = firstName;
@@ -58,6 +60,7 @@ export default class ContactData extends Data<TContact> {
       middleName: this.middleName,
       lastName: this.lastName,
       title: this.title,
+      summary: this.summary,
       email: this.email,
       currentLocation: this.currentLocation,
       github: this.github,
@@ -74,13 +77,18 @@ export default class ContactData extends Data<TContact> {
   /**
    * chainable methods
    */
+  public setSummary(summary: string): this {
+    this.summary = summary;
+    return this;
+  }
+
   public setCurrentLocation(currentLocation: string): this {
     this.currentLocation = currentLocation;
     return this;
   }
 
-  public setPhone(phone: string): this {
-    this.phone = phone;
+  public setPhone(displayName: string, url: string): this {
+    this.phone = new HyperlinkData(displayName, url).read();
     return this;
   }
 

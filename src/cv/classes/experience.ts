@@ -1,11 +1,12 @@
-import { Data, DataError, Nullable } from "../baseData";
+import { Data, DataError, Nullable } from "../common";
+import { format } from "date-fns";
 
 export type TExperience = {
   company: string;
   jobTitle: string;
   location: string;
-  start: Date;
-  end: Nullable<Date>;
+  start: string;
+  end: string;
   isCurrent: boolean;
   bulletPoints: string[];
 };
@@ -44,12 +45,15 @@ export default class ExperienceData extends Data<TExperience> {
       throw this.getError("must have between 3-6 bullet points");
     }
 
+    const startFormatted = format(this.start, "MMM yyyy");
+    const endFormatted =
+      this.end === null ? "Current" : format(this.end, "MMM yyyy");
     return {
       company: this.company,
       jobTitle: this.jobTitle,
       location: this.location,
-      start: this.start,
-      end: this.end,
+      start: startFormatted,
+      end: endFormatted,
       isCurrent: this.isCurrent,
       bulletPoints: this.bulletPoints,
     };

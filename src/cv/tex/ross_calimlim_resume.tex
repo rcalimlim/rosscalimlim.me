@@ -1,0 +1,339 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PlushCV - One Page Two Column Resume
+% LaTeX Template
+% Version 1.0 (11/28/2021)
+%
+% Author:
+% Shubham Mazumder (http://mazumder.me)
+%
+% Hacked together from:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TODO:
+% 1. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add more icon options
+% 4. Fix hacky left alignment on contact line
+% 5. Remove Hacky fix for awkward extra vertical space
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the vertical limit.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%Icons:
+%%Main: https://icons8.com/icons/carbon-copy
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{plushcv}
+\usepackage{fancyhdr}
+\usepackage{luacode}
+% \usepackage[none]{hyphenat} % disable word hyphenation
+% \righthyphenmin10
+\pagestyle{fancy}
+\fancyhf{}
+
+% read in JSON resume data
+% build helper printer fns
+% TODO: at some point refactor print calls to fn, not
+%       sure why I can't get them working right now
+\newcommand{\dataPath}{../../../dist/files}
+\begin{luacode}
+  require("lualibs.lua")
+  local f = io.open('\dataPath/resume.json', 'r')
+  local s = f:read('*a')
+  f:close()
+  resume =  utilities.json.tolua(s)
+\end{luacode}
+\newcommand\pr[1]{\directlua{tex.sprint(#1)}}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TODO: fix these lame functions
+\begin{luacode}
+  function contact(k, j)
+    if j == '' then
+      tex.sprint(resume['contact'][k])
+    else
+      tex.sprint(resume['contact'][k][j])
+    end
+  end
+\end{luacode}
+\newcommand\contact[2]{\directlua{contact('#1','#2')}}
+
+\namesection
+  {\contact{firstName}{}}
+  {\contact{lastName}{}}
+  {\contact{title}{}}
+  {
+    \contactline
+      {\href{\contact{site}{url}}{\contact{site}{displayText}}}
+      {\href{\contact{github}{url}}{\contact{github}{displayText}}}
+      {\href{\contact{linkedin}{url}}{\contact{linkedin}{displayText}}}
+      {\href{\contact{email}{url}}{\contact{email}{displayText}}}
+      {\href{\contact{phone}{url}}{\contact{phone}{displayText}}}
+  }
+
+% \namesection{Firstname}{Lastname}{Full Stack Software Engineer}{\contactline{\href{https://www.mazumder.me}{mazumder.me}}{\href{https://www.github.com/sansquoi}{sansquoi}}{\href{https://www.linkedin.com/mazumders}{mazumders}}{\href{mailto:shubham.mazumder@gmail.com}{first.last@email.com}}{\href{tel:+1999999999}{9999999999}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.70\textwidth}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+
+\begin{luacode}
+  for k, exp in ipairs(resume['experience']) do
+
+    local items = ''
+    for j,bullet in ipairs(exp['bulletPoints']) do
+      items = items .. string.format('\\item \%s', bullet)
+    end
+
+    local vsp = ''
+    if k == 1 then
+      vsp = '\\vspace{\\topsep}'
+    end
+
+    tex.sprint(
+      string.format(
+	'\\runsubsection{\%s}' ..
+	'\\descript{| \%s}' ..
+	'\\location{\%s - \%s | \%s}' ..
+	vsp ..
+	'\\begin{tightemize}' ..
+	'\\sectionsep' ..
+	'\%s' ..
+	'\\end{tightemize}' ..
+	'\\sectionsep' ..
+	'\\vspace{3mm}',
+	exp['company'],
+	exp['jobTitle'],
+	exp['start'],
+	exp['end'],
+	exp['location'],
+	items
+      )
+    )
+  end
+\end{luacode}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Projects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Projects}
+
+% \runsubsection{Speech-enabled Chatbot}
+% \descript{| C\#, Microsoft Bot Framework}
+% \location{2018}
+% \begin{tightemize}
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit. Vestibulum vel odio in diam ultrices posuere. Cras suscipit faucibus ullamcorper.
+% \item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper venenatis nisi at suscipit.
+% \end{tightemize}
+% \sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Awards}
+% \begin{tabular}{rll}
+% 2020	     & Finalist & Lorem Ipsum\\
+% 2018	     & $2^{nd}$ & Dolor Sit Amet\\
+% 2015	     & Finalist  & Cras posuere\\
+% \\
+% \end{tabular}
+% \sectionsep
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Skills}
+\sectionsep
+
+\begin{luacode}
+
+  for k,skillEntry in ipairs(resume['skills']) do
+    local skills = skillEntry['skills']
+    local items = ''
+    for j,sk in ipairs(skills) do
+      items = items .. string.format(' \%s', sk)
+      if j < #skills then
+	items = items .. ',  '
+      end
+    end
+    items = string.gsub(items, '\#', '\\\#')
+
+    tex.sprint(
+      string.format(
+	'\\subsection{\%s}' ..
+	'\\sectionsep' ..
+	'\%s' ..
+	'\\sectionsep' ..
+	'\\sectionsep',
+	skillEntry['skillType'],
+	items
+      )
+    )
+  end
+
+\end{luacode}
+
+% \location{Familiar:}
+% Java \textbullet{}  Shell \textbullet{} Assembly \\
+% \sectionsep
+% \sectionsep
+% \subsection{Libraries/Frameworks}
+% \sectionsep
+% jQuery \textbullet{} Node.js \textbullet{} Jekyll \textbullet{} React \\
+% \sectionsep
+% \sectionsep
+% \subsection{Tools/Platforms}
+% \sectionsep
+% Git \textbullet{} Gulp \textbullet{} Webpack \textbullet{} Heroku    \\ Wordpress \textbullet{} Docker \\
+
+% \sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education}
+\begin{luacode}
+  for j,edu in ipairs(resume['education']) do
+    local items = ''
+    for k,degree in ipairs(edu['degrees']) do
+      items = items .. string.format(
+	'\\textbullet{}\\descript{\%s in \%s}',
+	degree['degreeName'],
+	degree['focus']
+      )
+    end
+
+    tex.sprint(
+      string.format(
+	'\\subsection{\%s}' ..
+	'\\location{\%s - \%s | \%s}' ..
+	'\%s' ..
+	'\\sectionsep' ..
+	'\\sectionsep',
+	edu['organization'],
+	edu['start'],
+	edu['end'],
+	edu['location'],
+	items
+      )
+    )
+  end
+\end{luacode}
+
+% \section{Education}
+% \subsection{University of Utah}
+% \descript{Master's in Computer Science}
+% \location{Jan 2021 - Present | SLC, Utah}
+% School of Computing \\
+% \location{ Cum. GPA: 3.85 / 4.0 }
+
+% \sectionsep
+% \subsection{University of Oregon}
+% \descript{Bachelor's in Computer Science
+% \\and Engineering}
+% \location{May 2016 | Corvallis, OR}
+% School of Computing \\
+% \location{ Cum. GPA: 3.7 / 4.0 }
+% \sectionsep
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %     REFERENCES
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{References}
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{John Doe}, Senior Software Developer, Tyrell Corp}
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} john.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
+% \sectionsep
+% \href{https://www.linkedin.com/company/john-doe/}{\textbf{Jane Doe}}, Senior Software Developer, Primatech
+% \\
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1cm 0cm 0cm}]{icons/main/mail.png}\hspace{0.3cm} jane.doe@email.com
+% }
+% \parbox{\wd0}{\box0}
+% \endgroup
+% \begingroup
+% \setbox0=\hbox{
+% \includegraphics[scale=0.1,trim={0 1.25cm -0.4cm 0cm}]{icons/main/phone.png}\hspace{0.3cm}+19999999999
+% }
+% \parbox{\wd0}{\box0}\endgroup
+% \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Coursework}
+
+% \subsection{Graduate}
+% Graduate Algorithms \textbullet{}\\
+% Advanced Computer Architecture \textbullet{}\\
+% Operating Systems \textbullet{}\\
+% Artificial Intelligence \textbullet{}\\
+% Visualization For Scientific Data \\
+% \sectionsep
+
+% \subsection{Undergraduate}
+
+% Database Management Systems \textbullet{}\\
+% Object Oriented Analysis and Design \textbullet{}\\
+% Artificial Intelligence and Expert Systems \textbullet{}\\
+% Scripting Languages and Web Tech \textbullet{}\\
+% Software Engineering \\
+
+\end{minipage}
+\end{document}  \documentclass[]{article}
+
