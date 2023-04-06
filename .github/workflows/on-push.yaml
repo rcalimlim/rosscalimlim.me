@@ -4,24 +4,17 @@ on:
   push:
     branches: [main]
 
-runs:
-  using: "node18"
-
 jobs:
-  push:
+  build:
+    uses: rcalimlim/rosscalimlim.me/.github/workflows/on-pr.yaml@ma
+  sync-s3:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: sergeysova/jq-action@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
-
-      - name: install
-        run: yarn install --frozen-lockfile
-
-      - name: build
-        run: yarn build
+          node-version: 18
 
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
