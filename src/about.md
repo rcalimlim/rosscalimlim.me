@@ -11,7 +11,7 @@ I'm a software engineer focusing on building backend, web-scale technologies.
 
 ### interests
 
-open-source contribution, video games, weightlifting (powerlifting and Olympic lifting), reading
+open-source contribution, video games, tabletop games, strength training, reading
 
 ### contact
 

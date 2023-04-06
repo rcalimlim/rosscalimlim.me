@@ -12,6 +12,11 @@ to eventually get into the [10kb club](https://10kbclub.com/), which means keepi
 
 All to say, this site uses no front-end JavaScript at all--reducing client-load and decreasing network latency/load times!
 
+My resume is generated from a single source of truth with a custom resume framework that I built in TypeScript.
+As part of the automated build process using GitHub actions, it will generate a json file with my resume data. Then
+an automated LaTex Docker process picks it up and generates a pdf from that json file. Finally the static site files and the
+generated resume are pushed to AWS S3 with cache invalidation so the site is up-to-date nearly instantly.
+
 ### tech
 
 Source code for this site is available here: [GitHub](https://github.com/rcalimlim/rosscalimlim.me).
