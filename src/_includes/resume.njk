@@ -3,41 +3,5 @@ layout: main
 ---
 
 <section class="resume">
-<h1><a href="https://s3.amazonaws.com/rosscalimlim.me/files/ross_calimlim_resume.pdf" target="_blank" rel="noreferrer noopener">pdf download</a></h1>
-<h2 class="resumeHeader">experience</h2>
-{% for experience in resume.experience %}
-  <h3 class="resumeJobTitle">{{ experience.jobTitle }}</h3>
-  <p class="resumePeriod">{{ experience.location + "  |  " + experience.start + "-" + experience.end }}</p>
-  <ul class="resumeDescription">
-    {% for desc in experience.description %}
-      <li>{{ desc }}</li>
-    {% endfor %}
-  </ul>
-  <div class="spacer-1"></div>
-{% endfor %}
-<div class="spacer-1"></div>
-
-<h2 class="resumeHeader">education</h2>
-{% for edu in resume.education %}
-  <h3 class="resumeProgram">{{ edu.program }}</h3>
-  <p class="resumePeriod">{{ edu.start + "-" + edu.end }}</p>
-  <ul class="resumeDegree">
-    {% for degree in edu.degree %}
-      <li>{{ degree }}</li>
-    {% endfor %}
-  </ul>
-  <div class="spacer-1"></div>
-{% endfor %}
-<div class="spacer-1"></div>
-
-<h2 class="resumeHeader">skills</h2>
-{% for skill in resume.skills %}
-  <h3 class="resumeType">{{ skill.type }}</h3>
-  <p class="resumeValue">
-    {% for val in skill.values %}
-      {{ val }}{{ "," if not loop.last }}
-    {% endfor %}
-  </p>
-  <div class="spacer-1"></div>
-{% endfor %}
+  <h1><a href="https://s3.amazonaws.com/rosscalimlim.me/files/ross_calimlim_resume.pdf" target="_blank" rel="noreferrer noopener">pdf download</a></h1>
 </section>
