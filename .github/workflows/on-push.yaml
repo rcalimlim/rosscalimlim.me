@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-sync:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,14 +32,6 @@ jobs:
           run: |
             ls -al /root
             bash /root/entry.sh -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume
-  sync-s3:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: sergeysova/jq-action@v2
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
 
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
