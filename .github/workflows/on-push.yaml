@@ -4,11 +4,10 @@ on:
   push:
     branches: [main]
 
-runs:
-  using: "node18"
-
 jobs:
-  push:
+  build:
+    uses: rcalimlim/rosscalimlim.me/.github/workflows/on-pr.yaml@ma
+  sync-s3:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,26 +15,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-
-      - name: install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: build site
-        run: yarn buildSite
-
-      - name: gen resume data
-        run: yarn genResumeJson
-
-      - name: build resume
-        uses: addnab/docker-run-action@v3
-        with:
-          image: rosscalimlim/docker-latexmk
-          shell: bash
-          options: -v ${{ github.workspace }}:/data
-          run: |
-            ls -al /root
-            bash /root/entry.sh -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume
-            bash /root/entry.sh -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume -c
 
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
