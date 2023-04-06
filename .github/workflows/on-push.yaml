@@ -32,6 +32,7 @@ jobs:
           run: |
             ls -al /root
             bash /root/entry.sh -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume
+            bash /root/entry.sh -c -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume
 
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
