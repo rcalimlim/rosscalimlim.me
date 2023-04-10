@@ -1,6 +1,7 @@
 ## <a href=rosscalimlim.me>rosscalimlim.me</a>
 
-Repo for my personal site. Built with [11ty](https://www.11ty.dev), a static site generator.
+Repo for my personal site. Built with [11ty](https://www.11ty.dev), a static site generator,
+LaTeX, Docker, and TypeScript.
 
 ## installation
 
