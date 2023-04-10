@@ -10,7 +10,7 @@
     "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
     "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume",
     "buildSite": "eleventy && yarn genPageSize && eleventy",
-    "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth",
+    "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth && cp dist/files/resume.json src/_data",
     "build": "yarn clean && yarn buildSite && yarn buildResume",
     "start": "yarn build && eleventy --serve"
   },

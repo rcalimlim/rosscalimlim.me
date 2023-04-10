@@ -7,19 +7,26 @@ navIndex: 2
 
 ## this site
 
-is built with [11ty](https://www.11ty.dev/), a lightweight static site generator. Eleventy seemed to be the lightest and most flexible way to focus on content first. An ancillary goal is
-to eventually get into the [10kb club](https://10kbclub.com/), which means keeping the landing page zipped bundle size under 10kb.
+is built with [11ty](https://www.11ty.dev/), a lightweight static site generator. Eleventy seemed to be the lightest and most flexible way to focus on content first.
+An ancillary goal is to eventually get into the [10kb club](https://10kbclub.com/), which means keeping the landing page zipped bundle size under 10kb.
 
 All to say, this site uses no front-end JavaScript at all--reducing client-load and decreasing network latency/load times!
 
-My resume is generated from a single source of truth with a custom resume framework that I built in TypeScript.
-As part of the automated build process using GitHub actions, it will generate a json file with my resume data. Then
-an automated LaTex Docker process picks it up and generates a pdf from that json file. Finally the static site files and the
-generated resume are pushed to AWS S3 with cache invalidation so the site is up-to-date nearly instantly.
+I use GitHub actions to automate the build process is as follows:
+
+<ul>
+  <li>my resume data is generated with a custom TypeScript resume builder that outputs a <code>json</code> file source of truth</li>
+  <li><code>11ty</code> initially generates static site files</li>
+  <li>the GitHub action then compresses those files to get the approximate compressed file size</li>
+  <li><code>11ty</code> regenerates the static site files but now with data to populate this page with file size data</li>
+  <li>a LaTeX Docker process then picks up the json resume data and generates a pdf</li>
+  <li>the pdf resume and static site files are pushed to AWS S3 with cache invalidation so the site is up-to-date nearly instantly</li>
+</ul>
 
 ### tech
 
 Source code for this site is available here: [GitHub](https://github.com/rcalimlim/rosscalimlim.me).
+The following dependencies are automatically pulled from the <code>package.json</code> file.
 
 #### app dependencies:
 

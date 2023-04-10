@@ -1,0 +1,159 @@
+{
+  "contact": {
+    "firstName": "Ross",
+    "middleName": "F.",
+    "lastName": "Calimlim",
+    "title": "Software Engineer",
+    "summary": "Current Backend Software Engineer at Meta. Experienced with scalable, cloud-native, micro-services, and API design/implementation.",
+    "email": {
+      "displayText": "ross.calimlim@gmail.com",
+      "url": "mailto:ross.calimlim@gmail.com"
+    },
+    "currentLocation": "Jersey City, NJ",
+    "github": {
+      "displayText": "rcalimlim",
+      "url": "https://github.com/rcalimlim/"
+    },
+    "linkedin": {
+      "displayText": "rcalimlim",
+      "url": "https://www.linkedin.com/in/rcalimlim/"
+    },
+    "phone": {
+      "displayText": "+16462701475",
+      "url": "tel:+16462701475"
+    },
+    "site": {
+      "displayText": "rcalimlim.me",
+      "url": "https://rcalimlim.me/"
+    }
+  },
+  "education": [
+    {
+      "organization": "Hack Reactor",
+      "location": "Austin, TX",
+      "start": "May 2019",
+      "end": "Aug 2019",
+      "isCurrent": false,
+      "degrees": [
+        {
+          "degreeName": "Certificate",
+          "focus": "Advanced Software Engineering Immersive"
+        }
+      ]
+    },
+    {
+      "organization": "Baruch College, CUNY",
+      "location": "New York City, NY",
+      "start": "Nov 2011",
+      "end": "Mar 2016",
+      "isCurrent": false,
+      "degrees": [
+        {
+          "degreeName": "Bachelor of Business Administration",
+          "focus": "Finance"
+        },
+        {
+          "degreeName": "Minor",
+          "focus": "Philosophy"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Meta",
+      "jobTitle": "Software Engineer",
+      "location": "Remote/San Francisco, CA",
+      "start": "May 2022",
+      "end": "Current",
+      "isCurrent": true,
+      "bulletPoints": [
+        "Leading the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance",
+        "Built a new FB Messaging feature for group member reporting, providing parity with Messenger and supporting a high-priority wellbeing initiative",
+        "Improved messaging and logging infrastructure by implementing privacy-aware annotations and removing unused, unsafe loggers, in compliance with stringent privacy expectations",
+        "Spearheaded the development and implementation of a new GraphQL API for message threads, significantly reducing client overhead by shifting compute to the server"
+      ]
+    },
+    {
+      "company": "iFIT",
+      "jobTitle": "Platform Engineer",
+      "location": "Remote/Logan, UT",
+      "start": "Oct 2020",
+      "end": "Feb 2022",
+      "isCurrent": false,
+      "bulletPoints": [
+        "Designed and developed cloud-native, event-based workout runner service to provide new functionality, scalability, and resiliency to end users, as well as enabled full internal and third-party application integration",
+        "Set team direction, created technical specifications, and delegated development tasks to workout runner team to maintain cohesiveness and improve development velocity",
+        "Managed a team of four software engineers as initial Tech Lead for workout runner project",
+        "Refactored main monolith platform into microservices to facilitate ease of maintenance and decrease feature deployment times"
+      ]
+    },
+    {
+      "company": "Stylust",
+      "jobTitle": "Fullstack Software Engineer",
+      "location": "Austin, TX",
+      "start": "Oct 2019",
+      "end": "Sep 2020",
+      "isCurrent": false,
+      "bulletPoints": [
+        "Designed and developed Node.js REST API as organization’s main platform service, integrating it with third-party messaging/payment vendors and MySQL/PostgreSQL to streamline customer service workflows",
+        "Built standalone, internal frontend tools with Vue.js/React to phase out legacy system and increase order fulfillment velocity",
+        "Standardized use of TypeScript across all projects, to more quickly develop bug-free services and applications",
+        "Introduced automated testing stack with Mocha/Chai/Nock to ensure high software quality",
+        "Managed deployment of services to Google Cloud (Cloud Functions and Buckets) to rapidly bring products to market"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "skillType": "Development",
+      "skills": [
+        "JavaScript",
+        "TypeScript",
+        "PHP",
+        "Hack",
+        "C#",
+        "Java",
+        "Rust",
+        "Express",
+        "node.js",
+        "RESTful API Development",
+        "MySQL",
+        "PostgreSQL",
+        "MongoDB"
+      ]
+    },
+    {
+      "skillType": "Testing and Deployment",
+      "skills": [
+        "Serverless",
+        "AWS Cloud Suite",
+        "GCP Suite",
+        "GitHub Actions",
+        "Travis CI",
+        "Docker",
+        "Jest",
+        "Mocha",
+        "Chai",
+        "Enzyme",
+        "Artillery"
+      ]
+    },
+    {
+      "skillType": "Developer Tools",
+      "skills": [
+        "git",
+        "yarn",
+        "npm",
+        "Neovim",
+        "JIRA",
+        "TDD",
+        "Unix-likes",
+        "Agile",
+        "GitHub",
+        "Trello",
+        "Postman"
+      ]
+    }
+  ]
+}
