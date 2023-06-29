@@ -55,7 +55,7 @@ const META = new ExperienceData(
   .setStart(new Date(2022, 4))
   .setEnd(new Date(2023, 4))
   .addBulletPoint(
-    "Lead the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance"
+    "Led the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance"
   )
   .addBulletPoint(
     "Built a new FB Messaging feature for group member reporting, providing parity with Messenger and supporting a high-priority wellbeing initiative"
