@@ -65,10 +65,10 @@
       "jobTitle": "Software Engineer",
       "location": "Remote/San Francisco, CA",
       "start": "May 2022",
-      "end": "Jun 2023",
+      "end": "May 2023",
       "isCurrent": false,
       "bulletPoints": [
-        "Leading the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance",
+        "Led the migration of critical components of FB Messaging to a high-performance message sync framework, enabling end-to-end encryption, platform interoperability, and privacy compliance",
         "Built a new FB Messaging feature for group member reporting, providing parity with Messenger and supporting a high-priority wellbeing initiative",
         "Improved messaging and logging infrastructure by implementing privacy-aware annotations and removing unused, unsafe loggers, in compliance with stringent privacy expectations",
         "Spearheaded the development and implementation of a new GraphQL API for message threads, significantly reducing client overhead by shifting compute to the server"
