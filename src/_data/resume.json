@@ -61,6 +61,19 @@
   ],
   "experience": [
     {
+      "company": "Wayfair",
+      "jobTitle": "Software Engineer",
+      "location": "Remote/Brooklyn, NY",
+      "start": "July 2023",
+      "end": "",
+      "isCurrent": true,
+      "bulletPoints": [
+        "Design and implement a unified CI pipeline to standardize GraphQL APIs across all Wayfair teams",
+        "Build robust, programmatic API change management protocols, significantly reducing the risk of errors and ensure a seamless production environment",
+        "Maintain the Federated GraphQL ecosystem, granting development teams more autonomy with service development and deployment"
+      ]
+    },
+    {
       "company": "Meta",
       "jobTitle": "Software Engineer",
       "location": "Remote/San Francisco, CA",
