@@ -64,8 +64,8 @@
       "company": "Wayfair",
       "jobTitle": "Software Engineer",
       "location": "Remote/Brooklyn, NY",
-      "start": "July 2023",
-      "end": "",
+      "start": "Jul 2023",
+      "end": "Current",
       "isCurrent": true,
       "bulletPoints": [
         "Design and implement a unified CI pipeline to standardize GraphQL APIs across all Wayfair teams",
@@ -111,9 +111,7 @@
       "bulletPoints": [
         "Designed and developed Node.js REST API as organization’s main platform service, integrating it with third-party messaging/payment vendors and MySQL/PostgreSQL to streamline customer service workflows",
         "Built standalone, internal frontend tools with Vue.js/React to phase out legacy system and increase order fulfillment velocity",
-        "Standardized use of TypeScript across all projects, to more quickly develop bug-free services and applications",
-        "Introduced automated testing stack with Mocha/Chai/Nock to ensure high software quality",
-        "Managed deployment of services to Google Cloud (Cloud Functions and Buckets) to rapidly bring products to market"
+        "Standardized use of TypeScript across all projects, to more quickly develop bug-free services and applications"
       ]
     }
   ],

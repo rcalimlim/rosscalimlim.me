@@ -46,6 +46,25 @@ resume.setContact(ME);
 // **********************************************
 // Experience
 // **********************************************
+// exp - wayfair
+const WAYFAIR = new ExperienceData(
+  "Wayfair",
+  "Software Engineer",
+  "Remote/Brooklyn, NY"
+)
+  .setStart(new Date(2023, 6))
+  .setAsCurrent()
+  .addBulletPoint(
+    "Design and implement a unified CI pipeline to standardize GraphQL APIs across all Wayfair teams",
+  )
+  .addBulletPoint(
+    "Build robust, programmatic API change management protocols, significantly reducing the risk of errors and ensure a seamless production environment"
+  )
+  .addBulletPoint(
+    "Maintain the Federated GraphQL ecosystem, granting development teams more autonomy with service development and deployment"
+  )
+  .read();
+
 // exp - meta
 const META = new ExperienceData(
   "Meta",
@@ -103,16 +122,10 @@ const STYLUST = new ExperienceData(
   .addBulletPoint(
     "Standardized use of TypeScript across all projects, to more quickly develop bug-free services and applications"
   )
-  .addBulletPoint(
-    "Introduced automated testing stack with Mocha/Chai/Nock to ensure high software quality"
-  )
-  .addBulletPoint(
-    "Managed deployment of services to Google Cloud (Cloud Functions and Buckets) to rapidly bring products to market"
-  )
   .read();
 
 // add experiences in order
-resume.setExperience([META, IFIT, STYLUST]);
+resume.setExperience([WAYFAIR, META, IFIT, STYLUST]);
 
 // **********************************************
 // Skills
