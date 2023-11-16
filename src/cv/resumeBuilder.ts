@@ -55,13 +55,13 @@ const WAYFAIR = new ExperienceData(
   .setStart(new Date(2023, 6))
   .setAsCurrent()
   .addBulletPoint(
-    "Design and implement a unified CI pipeline to standardize GraphQL APIs across all Wayfair teams",
+    "Design and implement a platform service to standardize Apollo Federation Subgraphs across all teams using TypeScript/Node.js",
   )
   .addBulletPoint(
-    "Build robust, programmatic API change management protocols, significantly reducing the risk of errors and ensure a seamless production environment"
+    "Build Docker-based continuous integration plugins that provide actionable feedback for subgraph developers to fix breaking changes before getting to production"
   )
   .addBulletPoint(
-    "Maintain the Federated GraphQL ecosystem, granting development teams more autonomy with service development and deployment"
+    "Create automated rollback workflows with Bash scripting that trigger based on programmatic thresholds to minimize impact to customers during a production issue"
   )
   .read();
 
@@ -99,9 +99,6 @@ const IFIT = new ExperienceData("iFIT", "Platform Engineer", "Remote/Logan, UT")
   )
   .addBulletPoint(
     "Managed a team of four software engineers as initial Tech Lead for workout runner project"
-  )
-  .addBulletPoint(
-    "Refactored main monolith platform into microservices to facilitate ease of maintenance and decrease feature deployment times"
   )
   .read();
 

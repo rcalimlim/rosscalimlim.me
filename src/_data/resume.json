@@ -68,9 +68,9 @@
       "end": "Current",
       "isCurrent": true,
       "bulletPoints": [
-        "Design and implement a unified CI pipeline to standardize GraphQL APIs across all Wayfair teams",
-        "Build robust, programmatic API change management protocols, significantly reducing the risk of errors and ensure a seamless production environment",
-        "Maintain the Federated GraphQL ecosystem, granting development teams more autonomy with service development and deployment"
+        "Design and implement a platform service to standardize Apollo Federation Subgraphs across all teams using TypeScript/Node.js",
+        "Build Docker-based continuous integration plugins that provide actionable feedback for subgraph developers to fix breaking changes before getting to production",
+        "Create automated rollback workflows with Bash scripting that trigger based on programmatic thresholds to minimize impact to customers during a production issue"
       ]
     },
     {
@@ -97,8 +97,7 @@
       "bulletPoints": [
         "Designed and developed cloud-native, event-based workout runner service to provide new functionality, scalability, and resiliency to end users, as well as enabled full internal and third-party application integration",
         "Set team direction, created technical specifications, and delegated development tasks to workout runner team to maintain cohesiveness and improve development velocity",
-        "Managed a team of four software engineers as initial Tech Lead for workout runner project",
-        "Refactored main monolith platform into microservices to facilitate ease of maintenance and decrease feature deployment times"
+        "Managed a team of four software engineers as initial Tech Lead for workout runner project"
       ]
     },
     {
