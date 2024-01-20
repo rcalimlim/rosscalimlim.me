@@ -7,12 +7,12 @@
   "scripts": {
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
-    "genResumeJson": "yarn run ts-node scripts/writeResumeToJson.ts",
+    "genResumeJson": "pnpm exec ts-node scripts/writeResumeToJson.ts",
     "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume",
-    "buildSite": "eleventy && yarn genPageSize && eleventy",
-    "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth && cp dist/files/resume.json src/_data",
-    "build": "yarn clean && yarn buildSite && yarn buildResume",
-    "start": "yarn build && eleventy --serve"
+    "buildSite": "eleventy && pnpm genPageSize && eleventy",
+    "buildResume": "pnpm genResumeJson && pnpm compileLatexSplitWidth && cp dist/files/resume.json src/_data",
+    "build": "pnpm clean && pnpm buildSite && pnpm buildResume",
+    "start": "pnpm build && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
@@ -21,12 +21,12 @@
     "clean-css": "^5.1.5",
     "date-fns": "^2.23.0",
     "rimraf": "^3.0.2",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsc": "^2.0.4",
     "typescript": "^5.0.2"
   },
   "customDependencies": {
     "lualatex": "https://www.luatex.org/download.html"
   },
-  "packageManager": "yarn@3.5.0"
+  "packageManager": "pnpm@8.14.1"
 }
