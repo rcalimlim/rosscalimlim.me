@@ -33,7 +33,7 @@ const ME = new ContactData(
       "Experienced with scalable, cloud-native, " +
       "micro-services, and API design/implementation."
   )
-  .setCurrentLocation("Jersey City, NJ")
+  .setCurrentLocation("Brooklyn, NYC")
   .setSite("rcalimlim.me", "https://rcalimlim.me/")
   .setGithub("rcalimlim", "https://github.com/rcalimlim/")
   .setLinkedin("rcalimlim", "https://www.linkedin.com/in/rcalimlim/")
