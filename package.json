@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
     "genResumeJson": "pnpm exec ts-node scripts/writeResumeToJson.ts",
-    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../dist/files src/cv/tex/ross_calimlim_resume",
+    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../../dist/files src/cv/tex/plush-cv/plush_cv",
     "buildSite": "eleventy && pnpm genPageSize && eleventy",
     "buildResume": "pnpm genResumeJson && pnpm compileLatexSplitWidth && cp dist/files/resume.json src/_data",
     "build": "pnpm clean && pnpm buildSite && pnpm buildResume",
