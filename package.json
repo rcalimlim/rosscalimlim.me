@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "genPageSize": "bash scripts/page-size-data.sh",
     "genResumeJson": "yarn exec ts-node scripts/writeResumeToJson.ts",
-    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../../dist/files/plush_cv src/cv/tex/plush-cv/plush_cv",
+    "compileLatexSplitWidth": "mkdir -p dist/files && latexmk -lualatex -cd -output-directory=../../../../dist/files/plush_cv src/cv/tex/plush-cv/ross-calimlim-resume",
     "buildSite": "eleventy && yarn genPageSize && eleventy",
     "buildResume": "yarn genResumeJson && yarn compileLatexSplitWidth && cp dist/files/resume.json src/_data",
     "build": "yarn clean && yarn buildSite && yarn buildResume",
